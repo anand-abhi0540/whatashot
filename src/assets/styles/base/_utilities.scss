@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as *;
+@use "sass:string";
+
+@each $space in $spaces {
+  @each $side in $sides {
+    .#{string.slice($side,0,1)}m-#{$space} {
+      margin-#{$side}: #{$space}rem;
+    }
+    .#{string.slice($side,0,1)}p-#{$space} {
+      padding-#{$side}: #{$space}rem;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.column-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.error-or-required {
+  display: block;
+  padding-top: 0.1rem;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+  color: $color-error;
+}
