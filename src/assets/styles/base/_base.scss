@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 *,
 *::after,
 *::before {
@@ -8,14 +8,18 @@
   box-sizing: inherit;
 }
 
-html,
-body {
+html {
   height: 100%;
 }
 
 body {
   margin: 0;
   font-family: $primary-font, $secondary-font, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-white;
+  height: auto;
+  width: auto;
 }
 
 html {
@@ -58,81 +62,21 @@ body {
   }
 }
 
-::selection {
-  background-color: $color-primary;
-  color: $color-white;
+section {
+  padding: 5rem 0;
 }
 
 li {
   list-style: none;
 }
 
-ng2-pdfjs-viewer {
-  width: 80rem;
-  height: 60rem;
-  display: flex;
+a {
+  color: $color-white;
+  text-decoration: none;
 }
 
 td {
   cursor: pointer;
-}
-
-.primary-title {
-  color: $color-primary;
-  font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 2.9rem;
-}
-.sec-title {
-  font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 1.9rem;
-  color: $color-sub-header;
-}
-
-.enroll-form {
-  padding: 2.4rem;
-  border: $border-style;
-  background-color: $color-white;
-  border-radius: 0.8rem;
-}
-.panel-cont {
-  display: flex;
-  align-content: flex-start;
-  gap: 3rem;
-  @include respond(tab-land) {
-    flex-direction: column;
-  }
-  .panel-left {
-    flex-basis: 50%;
-
-    &-content {
-      padding-right: 4rem;
-      border-right: $border-style;
-      @include respond(tab-land) {
-        border-right: none;
-        padding-right: 0;
-        padding-bottom: 3rem;
-        border-bottom: $border-style;
-      }
-    }
-  }
-  .panel-right {
-    flex-basis: 49%;
-    padding-right: 4rem;
-    @include respond(tab-land) {
-      padding-right: 0;
-    }
-  }
-  .panel-big {
-    flex-basis: 48%;
-  }
-}
-
-::ng-deep .mat-mdc-form-field {
-  .mat-mdc-form-field-subscript-wrapper {
-    display: none;
-  }
 }
 
 .overlay {

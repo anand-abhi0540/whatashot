@@ -1,0 +1,15 @@
+.about {
+    padding: 7rem 0;
+    gap: 10rem;
+     &-img {
+        width: 52rem;
+        height: auto;
+     }
+    h2 {
+        margin: 1rem 0;
+    }
+    .details {
+        margin: 4rem 0  3rem;
+        text-align: justify;
+    }
+}

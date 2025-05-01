@@ -57,3 +57,18 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+ng build --aot
+    4  npx angular-cli-ghpages --dir=dist/whatashot/browser
+    5  ng build --aot --base-href "https://anand-abhi0540.github.io/whatashot/"
+    6  npx angular-cli-ghpages --dir=dist/whatashot/browser
+    7  ng build --aot --base-href "https://anand-abhi0540.github.io/whatashot/"
+    8  npx angular-cli-ghpages --dir=dist/whatashot/browser
+    9  ng build --aot
+   10  npx angular-cli-ghpages --dir=dist/whatashot/browser
+   11  git push origin main
+   12  git pull origin main
+   13  git push origin main
+   14  ng build --aot
+   15  npx angular-cli-ghpages --dir=dist/whatashot/browser
+   16  npx angular-cli-ghpages --dir=dist/whatashot/browser
