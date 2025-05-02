@@ -1,0 +1,17 @@
+<section>
+  <h2 class="text-l bold light-gradient-text">Our Happy Clients</h2>
+  <div class="client-carousel">
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(' + trackPosition + 'px)'"
+    >
+      <div
+        class="carousel-track-item"
+        *ngFor="let client of clientNames; let i = index"
+        [style.width]="itemWidth + 'px'"
+      >
+        <img [src]="'../../../../assets/images/' + client + '.png'" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

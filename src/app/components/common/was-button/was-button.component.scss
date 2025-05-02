@@ -26,13 +26,19 @@
         $color-tertiary,
         $color-secondary
       );
+      // background: linear-gradient(
+      //   to right,
+      //   rgba(0, 0, 0, 0.61),
+      //   $color-secondary
+      // );
+     
       transition: top 0.7s ease;
     }
     &:hover {
         color: $color-white;
         border: 1px solid $color-black;
         will-change: transform;
-        transform: translate3d(8.0234%, 8.0247%, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        transform: scale3d(1, 1, 1) rotateX(0deg)
           rotateY(0deg) rotateZ(0deg) skew(0deg);
         transform-style: preserve-3d;
         &::after {

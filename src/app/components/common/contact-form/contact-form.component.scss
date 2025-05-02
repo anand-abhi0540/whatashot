@@ -1,0 +1,92 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 4rem;
+//   background: radial-gradient(
+//     39.53% 50% at 50% 50%,
+//     rgba(90, 116, 144, 0.92) 0%,
+//     rgba(90, 116, 144, 0.49) 100%
+//   );
+  background: radial-gradient(
+        50% 50% at 50% 50%,
+        $color-secondary 0%,
+        rgba(0, 0, 0, 0.61) 100%
+      );
+  // background: radial-gradient(
+  //     50% 2900.76% at 50% 53.89%,
+  //     rgba(90, 116, 144, 0.95) 0%,
+  //     $color-primary 100%
+  //   );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 100px;
+  .gradient {
+    width: 30%;
+    background: radial-gradient(
+      50% 2900.76% at 50% 53.89%,
+      rgba(90, 116, 144, 0.95) 0%,
+      rgba(90, 116, 144, 0.49) 100%
+    );
+    // background: linear-gradient(
+    //   to right,
+    //   rgba(90, 116, 144, 0.92) 0%,
+    //   #b0c6da 35%,
+    //   #5a7490 69%,
+    //   rgba(90, 116, 144, 0.92) 100%
+    // );
+    height: 1px;
+  }
+  h2 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  &-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem 0;
+
+    input,
+    textarea {
+      padding: 2rem;
+      box-sizing: border-box;
+      border: 1px solid $color-white;
+      margin-bottom: 2rem;
+      background-color: transparent;
+      color: $color-white;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      &:focus {
+        border-color: transparent; /* accent color from your gradient palette */
+        box-shadow: 0 0 0 4px rgba(176, 198, 218, 0.2);
+      }
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+    input {
+      height: 7rem;
+      border-radius: 40px;
+    }
+    textarea {
+      height: 15rem;
+      border-radius: 16px;
+    }
+    .small {
+      flex-basis: 49%;
+    }
+    .large {
+      flex: 1 1 100%;
+    }
+    .button {
+        width: 60%;
+        margin: auto;
+    }
+  }
+}
