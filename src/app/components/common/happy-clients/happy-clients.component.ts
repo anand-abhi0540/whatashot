@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './happy-clients.component.scss'
 })
 export class HappyClientsComponent {
-  public clientNames: string[] = ['MP','MP','MP','MP','MP','MP','MP','MP','MP'];
+  public clientNames: string[] = ['MP','AV','PM','AR','BC','TT','GG'];
   itemWidth: number = 100;
   trackPosition: number = 0;
   scrollSpeed: number = 1;

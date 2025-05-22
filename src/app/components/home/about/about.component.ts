@@ -12,5 +12,5 @@ export class AboutComponent {
   public sectionIntroPrimaryText = 'INTRODUCTION';
   public sectionIntroSecondaryText = 'TO WHAT A SHOT';
   public sectionIntroDescription =
-    'Vitae sapien pellentesque habitant morbi tristique senectus et netus et. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Mi sit amet mauris commodo uis imperdiet massa tincidunt nunc. Viverra aliquet eget sit amet tellus. Ornare lectus sit amet est placerat in. Lectus magna fringilla urna porttitor rhoncus vitae.';
+    'At What A Shot, we believe every frame tells a story. Our passion lies in capturing moments that resonate, inspire, and leave lasting impressions.';
 }

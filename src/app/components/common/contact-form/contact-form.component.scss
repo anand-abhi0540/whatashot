@@ -100,6 +100,9 @@
   border: 1px solid white;
 }
 ::ng-deep .mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+  }
+
   mat-label {
     font-size: 1.3rem !important;
     padding-left: 1.2rem !important;
