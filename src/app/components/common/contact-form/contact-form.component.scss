@@ -106,6 +106,7 @@
   mat-label {
     font-size: 1.3rem !important;
     padding-left: 1.2rem !important;
+    color: $color-white;
 
   }
   
@@ -117,6 +118,7 @@
   .mat-mdc-select-value-text {
     font-size: 1.3rem !important;
     padding-left: 1.2rem !important;
+    color: $color-white !important;
   }
 }
 ::ng-deep .mat-mdc-progress-spinner {
