@@ -1,7 +1,10 @@
 <div class="category">
-    <select [(ngModel)]="selectedCategory" (change)="categorize(selectedCategory)" name="categorizeBy" id="categorizeBy">
-        <option value="brand">Brand</option>
-        <option value="services">Services</option>
-    </select>
+    <mat-form-field class="small" appearance="fill">
+        <mat-label>Categorize By:</mat-label>
+        <mat-select [(ngModel)]="selectedCategory" (selectionChange)="categorize(selectedCategory)">
+          <mat-option value="brand">Brand</mat-option>
+          <mat-option value="services">Services</mat-option>
+        </mat-select>
+      </mat-form-field>
 </div>
 <section></section>

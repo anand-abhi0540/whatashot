@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule,
+    MatSelectModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
