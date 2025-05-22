@@ -1,19 +1,87 @@
-<section>
-    <div class="contact">
-        <h2 class="text-xm bold">GET A QUOTE</h2>
-        <div class="gradient"></div>
-        <h2 class="text-xm light tp-1">Let's create your story</h2>
-        <form action="" class="contact-form flex">
-            <input type="text" placeholder="Name" class="small" required>
-            <input type="text" placeholder="Email" class="small" email required>
-            <input type="text" placeholder="Phone Number" class="small" required>
-            <input type="text" placeholder="Brand Name (TBD if not yet decided)" class="small" required>
-            <input type="text" placeholder="Product Type" class="small" required>
-            <input type="text" placeholder="Total Number Of Creative Photos" class="small" required>
-            <input type="text" placeholder="Total Number Of Listing Photos" class="small" required>
-            <input type="text" placeholder="Total Number Of Cinematic Video" class="small" required>
-            <textarea type="text" placeholder="Please specify any other requirements you might have like UGC, model shoots etc. with the units." class="large"></textarea>
-            <app-was-button class="button" buttonText="Submit"></app-was-button>
-        </form>
-    </div>
+<section id="contact-section">
+  <div class="contact">
+    <h2 class="text-xm bold">GET A QUOTE</h2>
+    <div class="gradient"></div>
+    <h2 class="text-xm light tp-1">Let's create your story</h2>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="requestQuote()"
+      class="contact-form flex"
+    >
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Brand Name (TBD if not yet decided)</mat-label>
+        <input matInput formControlName="brandName" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Product Type</mat-label>
+        <input matInput formControlName="productType" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Total Number Of Products</mat-label>
+        <input matInput formControlName="productUnits" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Total Number Of Creative Photos</mat-label>
+        <input matInput formControlName="creativePhotoUnits" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Total Number Of Listing Photos</mat-label>
+        <input matInput formControlName="listingPhotoUnits" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Total Number Of Cinematic Videos</mat-label>
+        <input matInput formControlName="cinematicVideos" required />
+      </mat-form-field>
+
+      <mat-form-field class="small" appearance="outline">
+        <mat-label>Preferred Mode of Contact</mat-label>
+        <mat-select formControlName="preferredContactMode" required>
+          <mat-option value="email">Email</mat-option>
+          <mat-option value="phone">Phone</mat-option>
+          <mat-option value="whatsapp">Whatsapp</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="large" appearance="outline">
+        <mat-label>Other Requirements</mat-label>
+        <textarea
+          matInput
+          formControlName="otherRequirements"
+        ></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="button was-button" type="submit">
+
+        <span *ngIf="!loading">Submit</span>
+        <span *ngIf="loading"><mat-progress-spinner
+          *ngIf="loading"
+          mode="indeterminate"
+          diameter="24"
+          color="primary"
+          class="spinner"
+        ></mat-progress-spinner></span>
+      </button>
+    </form>
+  </div>
 </section>

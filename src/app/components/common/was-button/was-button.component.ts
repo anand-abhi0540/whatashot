@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-was-button',
@@ -10,6 +10,15 @@ import { Component, Input } from '@angular/core';
 export class WasButtonComponent {
   @Input() buttonText: string = "";
   @Input() customClass: string = "";
+  @Input() buttonHref: string = "";
+  @Input() buttonType: string = "";
+  @Output() clicked = new EventEmitter();
 
+  public onClick(event: Event) {
+    if (!this.buttonHref) {
+      event.preventDefault();
+      this.clicked.emit();
+    }
+  }
 }
  

@@ -26,9 +26,14 @@
       backface-visibility: hidden;
       border-radius: 40px;
       overflow: hidden;
+      // background: radial-gradient(
+      //   50% 50% at 50% 50%,
+      //   $color-secondary 0%,
+      //   rgba(0, 0, 0, 0.61) 100%
+      // );
       background: radial-gradient(
-        50% 50% at 50% 50%,
-        $color-secondary 0%,
+        79% 52% at 50% 38%,
+        #5a7490 0%,
         rgba(0, 0, 0, 0.61) 100%
       );
       display: flex;

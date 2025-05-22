@@ -1,0 +1,19 @@
+<section id="testimonials-section">
+    <app-section-intro
+    [primaryText]="sectionIntroPrimaryText"
+    [secondaryText]="sectionIntroSecondaryText"
+    [description]="sectionIntroDescription"
+  ></app-section-intro>
+    <div class="testimonials">
+        <img src="" alt="" class="arrow">
+        <div class="cards">
+            <div class="card" *ngFor="let testimonial of testimonials">
+                <img [src]="'../../../../assets/images/' + testimonial.imgUrl" alt="" class="dp">
+                <h4 class="text-s bold">{{testimonial.clientName}}</h4>
+                <h5 class="text-xs">{{testimonial.brandName}}</h5>
+                <p class="text-s italic">{{testimonial.feedback}}</p>
+            </div>
+        </div>
+        <img src="" alt="" class="arrow">
+    </div>
+</section>

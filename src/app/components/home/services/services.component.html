@@ -1,4 +1,4 @@
-<section>
+<section id="services-section">
   <app-section-intro
     [primaryText]="sectionIntroPrimaryText"
     [secondaryText]="sectionIntroSecondaryText"
@@ -17,13 +17,16 @@
           ></video>
           <div class="video-overlay"></div>
         </div>
-        <h3 class="card-title text-m">{{service.serviceName}}</h3>
+        <h3 class="card-title text-m">{{ service.serviceName }}</h3>
       </div>
       <div class="card-back">
         <p class="card-description text-s">
-          {{service.serviceDetails}}
+          {{ service.serviceDetails }}
         </p>
-        <app-was-button buttonText="Book Now"></app-was-button>
+        <app-was-button
+          buttonText="Book Now"
+          buttonHref="#contact-section"
+        ></app-was-button>
       </div>
     </div>
   </div>
