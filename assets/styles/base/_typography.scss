@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as *;
+.text-xl {
+  font-size: 4rem;
+  line-height: 4.2rem;
+}
+.text-l {
+  font-size: 3.6rem;
+  line-height: 4rem;
+}
+
+.text-xm {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+.text-m {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.text-s {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+.text-xs {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.light {
+  font-weight: 100;
+}
+.text-medium {
+  font-weight: 500;
+}
+.text-bold {
+  font-weight: 600;
+}
+.text-x-bold {
+  font-weight: 700;
+}
+.dark-gradient-text {
+  background: linear-gradient(
+    91.57deg,
+    $color-tertiary -1.02%,
+    $color-secondary 36.25%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light-gradient-text {
+  background: linear-gradient(
+    269deg,
+    #b0c6da -3.72%,
+    rgba(90, 116, 144, 0.96) 56.15%,
+    #5a7490 82.17%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
