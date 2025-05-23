@@ -8,6 +8,7 @@
       [formGroup]="form"
       (ngSubmit)="requestQuote()"
       class="contact-form flex"
+      novalidate
     >
       <mat-form-field class="small" appearance="outline">
         <mat-label>Name</mat-label>
@@ -57,7 +58,7 @@
       <mat-form-field class="small" appearance="outline">
         <mat-label>Preferred Mode of Contact</mat-label>
         <mat-select formControlName="preferredContactMode" required>
-          <mat-option value="email">Email</mat-option>
+          <mat-option value="email">Instagram</mat-option>
           <mat-option value="phone">Phone</mat-option>
           <mat-option value="whatsapp">Whatsapp</mat-option>
         </mat-select>
@@ -71,7 +72,7 @@
         ></textarea>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="button was-button" type="submit">
+      <button class="button was-button" type="submit">
 
         <span *ngIf="!loading">Submit</span>
         <span *ngIf="loading"><mat-progress-spinner

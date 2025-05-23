@@ -111,3 +111,7 @@ td {
   background-color: #ff9800 !important;
   color: white;
 }
+
+::ng-deep .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+  border-radius: 0;
+}

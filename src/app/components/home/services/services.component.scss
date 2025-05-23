@@ -5,7 +5,7 @@
   padding: 4rem 0;
   .card {
     width: 30rem;
-    height: 40rem;
+    height: 37rem;
     perspective: 100rem;
     position: relative;
 
@@ -14,6 +14,9 @@
     }
     &:hover .card-back {
       transform: rotateY(0);
+    }
+    &-title {
+      text-align: center;
     }
 
     .card-front,
@@ -47,7 +50,7 @@
       .video-wrapper {
         position: relative;
         width: 100%;
-        height: 60%;
+        height: 100%;
 
         video {
           width: 100%;
@@ -73,7 +76,7 @@
     .card-back {
       transform: rotateY(180deg);
       justify-content: center;
-      align-items: center;
+      align-items: unset;
       padding: 4rem;
       opacity: 1;
     }
