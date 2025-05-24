@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { SectionIntroComponent } from '../../common/section-intro/section-intro.component';
 import { CommonModule } from '@angular/common';
+import { WasCarouselComponent } from "../../common/was-carousel/was-carousel.component";
 
 @Component({
   selector: 'app-testimonials',
-  imports: [CommonModule, SectionIntroComponent],
+  imports: [CommonModule, SectionIntroComponent, WasCarouselComponent],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent {
+[x: string]: any;
   public sectionIntroPrimaryText = 'RAW REVIEWS';
   public sectionIntroSecondaryText = 'REAL RESULTS';
+  public currentSlide = 0;
   public sectionIntroDescription =
     'Hear directly from our clients about their genuine experiences. No filters, no scripts — just honest feedback that reflects the quality and impact of our work. Discover how we’ve helped brands bring their vision to life and make a lasting impression.';
   public testimonials = [
@@ -42,5 +45,18 @@ export class TestimonialsComponent {
         "We got 2 videos done by What A Shot for our brand. We contacted various agencies but most of them couldn't arrange a dog. These guys did it amazingly with a very personal touch. Didn't have to explain much and they delivered exactly what we needed. Good job guys! Keep up the good work",
       imgUrl: 'SC_solid.jpg',
     },
+    {
+      clientName: 'Ashok',
+      brandName: 'AirBlue',
+      feedback: 'I had the pleasure of working with the team at What A Shot Productions and I must say, they exceeded all my expectations. The video created was incredibly focused, delivering the exact message we wanted to convey to our customers. They have a knack for producing high-quality videos that align perfectly with the allocated budget. The quality of the video was superb, and it truly captured the essence of our brand. If you’re looking for someone who delivers the right output at the right price, I highly recommend him!',
+      imgUrl: 'AB_solid.jpg',
+    },
   ];
+
+  public changeSlide(action: string) {
+    this.currentSlide =
+      action === 'prev'
+        ? (this.currentSlide - 1 + this.testimonials.length) % this.testimonials.length
+        : (this.currentSlide + 1) % this.testimonials.length;
+  }
 }

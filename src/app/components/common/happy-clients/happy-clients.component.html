@@ -8,10 +8,12 @@
       <div
         class="carousel-track-item"
         *ngFor="let client of clientNames; let i = index"
-        [style.width]="itemWidth + 'px'"
       >
-        <img [src]="'../../../../assets/images/' + client + '.png'" alt="" />
-      </div>
+      <img
+      [style.width]="client === 'SI' ? '15rem' : 'auto'"
+      [src]="'../../../../assets/images/' + client + '.png'"
+      alt=""
+    />      </div>
     </div>
   </div>
 </section>

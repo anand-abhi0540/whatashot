@@ -1,13 +1,35 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
 
 .logo {
   img {
+    display: flex;
     padding: 2rem;
     height: 13em;
     width: auto;
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
 .menu {
   flex: 1 1 50%;
   justify-content: center;
   gap: 5rem;
+  @include respond(phone) {
+    gap: 3rem;
+  }
+}
+
+.mobile-logo {
+  display: none;
+  img {
+    height: 11rem;
+    width: auto;
+  }
+  @include respond(phone) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

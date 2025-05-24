@@ -65,6 +65,10 @@ body {
 
 section {
   padding: 5rem 0;
+  @include respond(phone) {
+    padding: 5rem 0 2rem;
+}
+  
 }
 
 li {

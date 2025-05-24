@@ -1,85 +1,81 @@
 @use "../../../../assets/styles/abstracts/variables" as *;
-.services {
-  display: flex;
-  gap: 1rem;
-  padding: 4rem 0;
-  align-items: center;
-  .card {
-    width: 27rem;
-    height: 48rem;
-    perspective: 100rem;
-    position: relative;
+@use "../../../../assets/styles/abstracts/mixins" as *;
+ 
+    .card {
+      width: 27rem;
+      height: 48rem;
+      perspective: 100rem;
+      position: relative;
 
-    &:hover .card-front {
-      transform: rotateY(-180deg);
-    }
-    &:hover .card-back {
-      transform: rotateY(0);
-    }
-    &-title {
-      text-align: center;
-    }
+      &:hover .card-front {
+        transform: rotateY(-180deg);
+      }
+      &:hover .card-back {
+        transform: rotateY(0);
+      }
+      &-title {
+        text-align: center;
+      }
 
-    .card-front,
-    .card-back {
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 40px;
-      overflow: hidden;
-      // background: radial-gradient(
-      //   50% 50% at 50% 50%,
-      //   $color-secondary 0%,
-      //   rgba(0, 0, 0, 0.61) 100%
-      // );
-      background: radial-gradient(
-        79% 52% at 50% 38%,
-        #5a7490 0%,
-        rgba(0, 0, 0, 0.61) 100%
-      );
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-      gap: 3rem;
-    }
-
-    .card-front {
-      .video-wrapper {
-        position: relative;
+      .card-front,
+      .card-back {
+        transform-style: preserve-3d;
+        transition: transform 0.8s ease;
+        position: absolute;
         width: 100%;
         height: 100%;
+        backface-visibility: hidden;
+        border-radius: 40px;
+        overflow: hidden;
+        // background: radial-gradient(
+        //   50% 50% at 50% 50%,
+        //   $color-secondary 0%,
+        //   rgba(0, 0, 0, 0.61) 100%
+        // );
+        background: radial-gradient(
+          79% 52% at 50% 38%,
+          #5a7490 0%,
+          rgba(0, 0, 0, 0.61) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        gap: 3rem;
+      }
 
-        video {
+      .card-front {
+        .video-wrapper {
+          position: relative;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          border-radius: 30px 30px 0 0;
-        }
 
-        .video-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 30px 30px 0 0;
-          background: rgba(90, 116, 144, 0.5);
-          //   rgba(90, 116, 144, 0)
-          pointer-events: none;
+          video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px 30px 0 0;
+          }
+
+          .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px 30px 0 0;
+            background: rgba(90, 116, 144, 0.5);
+            //   rgba(90, 116, 144, 0)
+            pointer-events: none;
+          }
         }
       }
-    }
 
-    .card-back {
-      transform: rotateY(180deg);
-      justify-content: center;
-      align-items: unset;
-      padding: 4rem;
-      opacity: 1;
+      .card-back {
+        transform: rotateY(180deg);
+        justify-content: center;
+        align-items: unset;
+        padding: 4rem;
+        opacity: 1;
+      }
     }
-  }
-}

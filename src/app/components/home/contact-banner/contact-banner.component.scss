@@ -1,11 +1,12 @@
 @use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
 
 .contact-banner {
   position: relative;
   z-index: 200;
   height: 16rem;
   padding-right: 2rem;
-  padding-left:  4rem;
+  padding-left: 4rem;
   background: radial-gradient(
     50% 2900.76% at 50% 53.89%,
     rgba(90, 116, 144, 0.95) 0%,
@@ -17,6 +18,35 @@
     width: 30%;
     border-right: 1px solid $color-tertiary;
     gap: 3rem;
+    justify-content: center;
+    a {
+      img {
+        @include respond(tab-land) {
+          height: 5rem;
+          width: 5rem;
+        }
+      }
+    }
+    h3 {
+      display: block;
+      @include respond(phone) {
+        display: none;
+      }
+    }
+    h5 {
+      display: block;
+      @include respond(tab-land) {
+        display: none;
+      }
+    }
+    .mail {
+      img {
+        @include respond(tab-land) {
+          height: 5rem;
+          width: 6rem;
+        }
+      }
+    }
     &:last-child {
       border: none;
     }

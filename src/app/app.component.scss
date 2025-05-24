@@ -1,7 +1,14 @@
 @use '../assets/styles/abstracts/variables' as *;
+@use '../assets/styles/abstracts/mixins' as *;
 .main   {
     height: 100%;
     width: 100%;
     background-color: $color-primary;
     padding:0 9rem;
+    @include respond(tab-land) {
+        padding: 0 5rem;
+    }
+    @include respond(phone) {
+        padding: 0 3rem;
+    }
 }
