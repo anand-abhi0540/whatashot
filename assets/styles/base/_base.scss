@@ -67,8 +67,7 @@ section {
   padding: 5rem 0;
   @include respond(phone) {
     padding: 5rem 0 2rem;
-}
-  
+  }
 }
 
 li {
@@ -98,24 +97,27 @@ td {
 
 .toast-success {
   background-color: $color-secondary !important;
-  color: white;
+  color: $color-white;
 }
 
 .toast-error {
   background-color: $color-tertiary !important;
-  color: white;
+  color: $color-white;
+  border-radius: 0 !important;
 }
 
 .toast-info {
   background-color: #2196f3 !important;
-  color: white;
+  color: $color-white;
 }
 
 .toast-warn {
   background-color: #ff9800 !important;
-  color: white;
+  color: $color-white;
 }
 
-::ng-deep .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
-  border-radius: 0;
+.mdc-snackbar {
+  .mat-mdc-snackbar-surface {
+    border-radius: 0 !important;
+  }
 }
