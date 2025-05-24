@@ -3,6 +3,7 @@
     <h2 class="text-xm bold">GET A QUOTE</h2>
     <div class="gradient"></div>
     <h2 class="text-xm light tp-1">Let's create your story</h2>
+    <h5 class="text-xs light ">We wont share your information with anyone else.</h5>
 
     <form
       [formGroup]="form"
@@ -14,26 +15,36 @@
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" required />
       </mat-form-field>
-
+      
       <mat-form-field class="small" appearance="outline">
+        <mat-label>Preferred Mode of Contact</mat-label>
+        <mat-select formControlName="preferredContactMode" required>
+          <mat-option selected value="email">Email</mat-option>
+          <mat-option value="phone">Phone</mat-option>
+          <mat-option value="whatsapp">Whatsapp</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="form['controls']['preferredContactMode'].value === 'email'" class="small" appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" required />
       </mat-form-field>
 
-      <mat-form-field class="small" appearance="outline">
+      <mat-form-field *ngIf="form['controls']['preferredContactMode'].value !== 'email'" class="small" appearance="outline">
         <mat-label>Phone Number</mat-label>
-        <input matInput formControlName="phone" required />
+        <input matInput formControlName="phone" type="phone" required />
       </mat-form-field>
 
+
       <mat-form-field class="small" appearance="outline">
-        <mat-label>Brand Name (TBD if not yet decided)</mat-label>
+        <mat-label>Brand Name (Product Type if name not decided)</mat-label>
         <input matInput formControlName="brandName" required />
       </mat-form-field>
 
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>Product Type</mat-label>
         <input matInput formControlName="productType" required />
-      </mat-form-field>
+      </mat-form-field> -->
 
       <mat-form-field class="small" appearance="outline">
         <mat-label>Total Number Of Products</mat-label>
@@ -55,14 +66,6 @@
         <input matInput formControlName="cinematicVideos" required />
       </mat-form-field>
 
-      <mat-form-field class="small" appearance="outline">
-        <mat-label>Preferred Mode of Contact</mat-label>
-        <mat-select formControlName="preferredContactMode" required>
-          <mat-option value="email">Instagram</mat-option>
-          <mat-option value="phone">Phone</mat-option>
-          <mat-option value="whatsapp">Whatsapp</mat-option>
-        </mat-select>
-      </mat-form-field>
 
       <mat-form-field class="large" appearance="outline">
         <mat-label>Other Requirements</mat-label>

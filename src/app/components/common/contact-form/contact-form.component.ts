@@ -40,15 +40,15 @@ export class ContactFormComponent {
   ) {
     this.form = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      email: ['', [ Validators.email]],
+      phone: [''],
       brandName: ['', Validators.required],
-      productType: ['', Validators.required],
+      productType: [''],
       productUnits: ['', Validators.required],
       creativePhotoUnits: ['', Validators.required],
       listingPhotoUnits: ['', Validators.required],
       cinematicVideos: ['', Validators.required],
-      preferredContactMode: ['', Validators.required],
+      preferredContactMode: ['phone', Validators.required],
       otherRequirements: [''],
       status: ['Lead Received'],
       remarks: ['Follow up'],
@@ -73,7 +73,10 @@ export class ContactFormComponent {
         responseType: 'text',
       })
       .subscribe({
-        next: () => (this.loading = false),
+        next: () => {
+          this.loading = false;
+          this.toast.success('Form submitted successfully!');
+        },
         error: (err) => {
           console.log('error', err);
           this.loading = false;
