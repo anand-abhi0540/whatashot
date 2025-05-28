@@ -47,7 +47,7 @@ export class ServicesComponent {
     },
     {
       serviceName: 'NGO/CSR Stories',
-      serviceResource: 'https://youtube.com/embed/mmd6pvsSUCc?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=0',
+      serviceResource: 'https://youtube.com/embed/YNJ9CSOGIt4?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=0',
       serviceDetails:
         'Compelling stories that spotlight social impact and community efforts.',
     }
