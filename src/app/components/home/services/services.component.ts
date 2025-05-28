@@ -44,14 +44,13 @@ export class ServicesComponent {
         'https://youtube.com/embed/SqRetV3QlIQ?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=0',
       serviceDetails:
         'Authentic user-generated content to boost engagement and trust.',
+    },
+    {
+      serviceName: 'NGO/CSR Stories',
+      serviceResource: 'https://youtube.com/embed/mmd6pvsSUCc?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=0',
+      serviceDetails:
+        'Compelling stories that spotlight social impact and community efforts.',
     }
-    // {
-    //   serviceName: 'NGO/CSR Stories',
-    //   serviceResource:
-    //     'https://www.youtube.com/embed/DcbRyeM1g8k?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=0',
-    //   serviceDetails:
-    //     'Compelling stories that spotlight social impact and community efforts.',
-    // }
   ];
 
   public changeSlide(action: string) {
