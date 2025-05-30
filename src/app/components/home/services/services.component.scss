@@ -6,6 +6,9 @@
       height: 48rem;
       perspective: 100rem;
       position: relative;
+      &:last-child {
+        width: 25rem;
+      }
 
       &:hover .card-front {
         transform: rotateY(-180deg);
