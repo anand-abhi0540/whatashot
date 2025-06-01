@@ -1,0 +1,29 @@
+@use "../../../../assets/styles/abstracts/mixins.scss" as *;
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include respond(phone) {
+    flex-direction: column;
+    gap: 5rem;
+  }
+}
+.title {
+  img {
+    width: 17rem;
+    height: 5rem;
+    display: block;
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+}
+.description {
+  width: 50%;
+  @include respond(phone) {
+    width: 100%;
+  }
+  p {
+    text-align: justify;
+  }
+}

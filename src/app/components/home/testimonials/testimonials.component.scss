@@ -1,0 +1,27 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+    .card {
+      height: 20rem;
+      width: 30rem;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 1rem;
+      img {
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        position: relative;
+        top: -21px;
+      }
+      h5 {
+        color: $color-grey-dark-5;
+      }
+      p {
+        margin: 2rem ;
+        font-style: italic;
+        overflow: scroll;
+      }
+    }
+  
+

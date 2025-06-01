@@ -1,0 +1,57 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
+
+.contact-banner {
+  position: relative;
+  z-index: 200;
+  height: 16rem;
+  padding-right: 2rem;
+  padding-left: 4rem;
+  background: radial-gradient(
+    50% 2900.76% at 50% 53.89%,
+    rgba(90, 116, 144, 0.95) 0%,
+    $color-primary 100%
+  );
+  box-shadow: 0px 4px 4px rgba(192, 183, 232, 0.01);
+  border-radius: 90px;
+  .menu {
+    width: 30%;
+    border-right: 1px solid $color-tertiary;
+    gap: 3rem;
+    justify-content: center;
+    a {
+      img {
+        @include respond(tab-land) {
+          height: 5rem;
+          width: 5rem;
+        }
+      }
+    }
+    h3 {
+      display: block;
+      @include respond(phone) {
+        display: none;
+      }
+    }
+    h5 {
+      display: block;
+      @include respond(tab-land) {
+        display: none;
+      }
+    }
+    .mail {
+      img {
+        @include respond(tab-land) {
+          height: 5rem;
+          width: 6rem;
+        }
+      }
+    }
+    &:last-child {
+      border: none;
+    }
+    .title {
+      gap: 1rem;
+    }
+  }
+}

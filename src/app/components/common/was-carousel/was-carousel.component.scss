@@ -1,0 +1,30 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  .slides {
+    display: flex;
+    gap: 1rem;
+    padding: 4rem 0;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  button {
+    position: absolute;
+    font-size: 5rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: $color-white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    &:first-child {
+      left: 0;
+    }
+    &:last-child {
+      right: 0;
+    }
+  }
+}

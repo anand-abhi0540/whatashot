@@ -1,0 +1,99 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
+
+.intro {
+  .info {
+    position: relative;
+    .text-xl-portrait {
+      @include respond(tab-port) {
+        font-size: 6rem;
+        line-height: 6.2rem;
+      }
+      @include respond(mini-tab-port) {
+        font-size: 5rem;
+        line-height: 5.2rem;
+      }
+      @include respond(phone) {
+        font-size: 4rem;
+        line-height: 4.2rem;
+      }
+      @include respond(phone-small) {
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+    }
+    .body {
+      padding: 2rem 0;
+      width: 75%;
+    }
+    .arrow-img {
+      width: 7rem;
+    }
+  }
+  .hero {
+    position: relative;
+    &-img {
+      height: 37rem;
+      width: auto;
+      z-index: 200;
+      position: inherit;
+      display: block;
+      @include respond(tab-land) {
+        display: block;
+        height: 34rem;
+      }
+      @include respond(tab-port) {
+        display: none;
+      }
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+  .curve {
+    position: absolute;
+    display: block;
+    &-portrait {
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+    &-1 {
+      top: -12%;
+      left: 39%;
+      transform: rotate(10deg);
+      width: 33rem;
+      z-index: 100;
+      @include respond(tab-land) {
+        left: 25%;
+      }
+    }
+    &-2 {
+      top: -36%;
+      left: 18%;
+      width: 28rem;
+      transform: rotate(-15deg);
+    }
+    &-3 {
+      top: 46%;
+      left: -6%;
+      width: 53rem;
+      transform: rotate(19deg);
+      @include respond(tab-land) {
+        left: -9%;
+        width: 50rem;
+      }
+    }
+    &-4 {
+      top: 0%;
+      left: -11%;
+      width: 20rem;
+      transform: rotate(-14deg);
+    }
+  }
+}
+
+app-was-button:hover + .arrow-img {
+  transform: translateX(4rem);
+  transition: transform 0.3s ease;
+}

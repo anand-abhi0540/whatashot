@@ -1,0 +1,10 @@
+<div class="carousel flex">
+  <button (click)="onClick('prev')">‹</button>
+  <div
+    class="slides"
+    [style.transform]="'translateX(-' + currentSlide * 25 + 'rem)'"
+  >
+    <ng-content></ng-content>
+  </div>
+  <button (click)="onClick('next')">›</button>
+</div>

@@ -1,0 +1,53 @@
+h2 {
+    text-align: center;
+}
+.client-carousel {
+    overflow: hidden;
+    width: 100%;
+    padding: 3rem 0;
+  
+    .carousel-track {
+      display: flex;
+      gap: 4rem;
+      animation: scroll 20 linear infinite;
+      &-item {
+        display: flex;
+      }
+      img {
+        height: 5rem;
+        flex-shrink: 0;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+  
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+
+// //   .carousel-container {
+// //     width: 500px; /* Adjust as needed */
+// //     overflow: hidden;
+// //   }
+  
+// //   .carousel-track {
+// //     display: flex;
+// //     transition: transform 0.3s ease-in-out;
+// //   }
+  
+// //   .carousel-item {
+// //     width: 100px; /* Adjust as needed */
+// //     flex-shrink: 0;
+// //     /* Other styling for your items */
+// //   }
