@@ -1,0 +1,150 @@
+{
+  "brands": [
+    {
+      "name": "Aviva Beauty",
+      "id": "aviva_beauty",
+      "services": [
+        "Creative Images",
+        "Listing Images",
+        "Videos",
+        "UGC",
+        "Model"
+      ]
+    },
+    {
+      "name": "Aare Beauty",
+      "id": "aare_beauty",
+      "services": ["Creative Images", "Videos"]
+    },
+    {
+      "name": "AR3 Aromas",
+      "id": "ar3_aromas",
+      "services": ["Creative Images", "Videos"]
+    },
+    {
+      "name": "Air Blue",
+      "id": "air_blue",
+      "services": ["Videos"]
+    },
+    {
+      "name": "BIC",
+      "id": "bic",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "Bin Suleman",
+      "id": "bin_suleman",
+      "services": ["Creative Images", "Listing Images"]
+    },
+    {
+      "name": "Gour Guitton",
+      "id": "gourguitton",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "Hilford",
+      "id": "hilford",
+      "services": ["Creative Images"]
+    },
+    {
+      "name": "Hue and Shades",
+      "id": "hue_and_shades",
+      "services": ["Listing Images", "Videos"]
+    },
+    {
+      "name": "Minimalist",
+      "id": "minimalist",
+      "services": ["Videos"]
+    },
+    {
+      "name": "Mystic Pearl",
+      "id": "mystic_pearl",
+      "services": ["Creative Images", "Listing Images", "Videos", "Model"]
+    },
+    {
+      "name": "Perito Moreno",
+      "id": "perito_moreno",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "Scentsual",
+      "id": "scentsual",
+      "services": ["Creative Images", "Listing Images"]
+    },
+    {
+      "name": "Scooby Cheww",
+      "id": "scooby_cheww",
+      "services": ["Creative Images", "Videos"]
+    },
+    {
+      "name": "Skin Inspired",
+      "id": "skin_inspired",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "TaruTattva",
+      "id": "taru_tattva",
+      "services": ["Videos"]
+    }
+  ],
+  "industries": [
+    {
+      "name": "Beauty and Personal Care",
+      "id": "beauty_and_personal_care",
+      "services": [
+        "Creative Images",
+        "Listing Images",
+        "Videos",
+        "UGC",
+        "Model"
+      ]
+    },
+    {
+      "name": "Dog Food",
+      "id": "dog_food",
+      "services": ["Creative Images", "Videos"]
+    },
+    {
+      "name": "Footwear",
+      "id": "footwear",
+      "services": ["Videos"]
+    },
+    {
+      "name": "Incense and Fragrances",
+      "id": "incense_and_fragrances",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "Perfumes",
+      "id": "perfumes",
+      "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "NGO/CSR Stories",
+      "id": "ngo_csr_stories",
+      "services": ["Videos"]
+    }
+  ],
+  "services": [
+    {
+      "name": "Creative Images",
+      "id": "creative_images"
+    },
+    {
+      "name": "Listing Images",
+      "id": "listing_images"
+    },
+    {
+      "name": "UGC",
+      "id": "ugc"
+    },
+    {
+      "name": "Model",
+      "id": "model"
+    },
+    {
+      "name": "Videos",
+      "id": "videos"
+    }
+  ]
+}

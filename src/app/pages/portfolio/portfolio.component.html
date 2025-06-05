@@ -1,15 +1,17 @@
-<!-- <div class="category">
-    <mat-form-field class="small" appearance="fill">
-        <mat-label>Categorize By:</mat-label>
-        <mat-select [(ngModel)]="selectedCategory" (selectionChange)="categorize(selectedCategory)">
-          <mat-option value="brand">Brand</mat-option>
-          <mat-option value="services">Services</mat-option>
-        </mat-select>
-      </mat-form-field>
-</div> -->
-<section>
+<section class="category">
+  <mat-form-field class="small" appearance="outline">
+    <mat-label>Categorize By:</mat-label>
+    <mat-select [(ngModel)]="selectedCategoryType" (selectionChange)="categorize()">
+      <mat-option value="brands">Brand</mat-option>
+      <mat-option value="services">Services</mat-option>
+      <mat-option value="industries">Industry</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <app-category-detail [data]="selectedCategories"(itemSelected)="itemSelection($event)"></app-category-detail>
+</section>
+<!-- <section>
   <iframe
     src="https://drive.google.com/embeddedfolderview?id=1J43VPzYfCdf3mLstVOR5pT6G0a6mlzAP#grid"
     style="width: 100%; height: 600px; border: 0"
   ></iframe>
-</section>
+</section> -->

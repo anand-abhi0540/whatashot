@@ -1,0 +1,13 @@
+<section class="media">
+    <div *ngFor="let item of media" class="media-list column-flex">
+        <img 
+        *ngIf="serviceId.includes('images'); else videoEl" 
+        [src]="'https://raw.githubusercontent.com/anand-abhi0540/whatashot-assets/main/' + item.url" 
+        [alt]="item.alt" />        <ng-template #videoEl>
+            <video  controls>
+                <source src="" type="video/mp4" />
+              </video>
+        </ng-template>
+      <h3 class="text-s bold">{{ item.name }}</h3>
+    </div>
+</section>

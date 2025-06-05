@@ -1,0 +1,18 @@
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    .category {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem;
+      gap: 2rem;
+      .folder {
+        height: 10rem;
+        width: 15rem;
+      }
+    }
+  }
+  

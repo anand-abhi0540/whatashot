@@ -1,0 +1,16 @@
+<section>
+  <div class="categories">
+    <div
+      *ngFor="let item of items; trackBy: trackById"
+      class="category"
+      (click)="onClick(item.id)"
+    >
+      <img
+        src="../../../assets/icons/folder.svg"
+        [alt]="item.name"
+        class="folder"
+      />
+      <h3 class="text-s bold">{{ item.name }}</h3>
+    </div>
+  </div>
+</section>
