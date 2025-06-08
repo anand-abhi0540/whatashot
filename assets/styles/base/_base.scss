@@ -85,39 +85,95 @@ td {
 }
 
 .overlay {
-  position: fixed;
+  position: absolute;
   display: block;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(74, 74, 74, 0.8);
-  z-index: 999;
+  background-color: rgba(90, 116, 144, 0.5);
+  z-index: 99;
+  pointer-events: none;
+}
+
+.toast-success, .toast-error, .toast-info, .toast-warn {
+  color: white !important;
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 
 .toast-success {
   background-color: $color-secondary !important;
-  color: $color-white;
 }
 
 .toast-error {
-  background-color: $color-tertiary !important;
-  color: $color-white;
+  background-color: $color-error !important;
   border-radius: 0 !important;
 }
 
 .toast-info {
   background-color: #2196f3 !important;
-  color: $color-white;
 }
 
 .toast-warn {
   background-color: #ff9800 !important;
-  color: $color-white;
 }
 
 .mdc-snackbar {
   .mat-mdc-snackbar-surface {
     border-radius: 0 !important;
   }
+}
+
+.mat-mdc-select-panel {
+  // background: linear-gradient(
+  //   to right,
+  //   rgba(90, 116, 144, 0.92) 0%,
+  //   #b0c6da 35%,
+  //   #5a7490 69%,
+  //   rgba(90, 116, 144, 0.92) 100%
+  // );
+  background: white !important;
+  color: black;
+  border: 1px solid white;
+}
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+  }
+
+  mat-label {
+    font-size: 1.3rem !important;
+    padding-left: 1.2rem !important;
+    color: $color-white;
+  }
+
+  .mat-mdc-select-arrow {
+    width: 30px;
+  }
+  input.mat-mdc-input-element,
+  textarea.mat-mdc-input-element,
+  .mat-mdc-select-value-text {
+    font-size: 1.3rem !important;
+    padding-left: 1.2rem !important;
+    color: $color-white !important;
+  }
+}
+.mat-mdc-progress-spinner {
+  svg {
+    circle {
+      stroke: $color-tertiary !important;
+    }
+  }
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-focus-outline-color: white; // Remove blue
+  --mdc-outlined-text-field-focus-label-color: white; // Optional: set label color on focus
+  --mdc-outlined-text-field-outline-color: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ); // Optional: default border color
+  --mdc-outlined-text-field-hover-outline-color: white;
 }
