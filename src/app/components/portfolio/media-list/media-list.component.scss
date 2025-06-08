@@ -8,10 +8,9 @@
   &-list {
     align-items: center;
     position: relative;
+  }
 
-}
-
-&-img {
+  &-img {
     height: 15rem;
     width: 15rem;
     cursor: pointer;
@@ -21,10 +20,9 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
       .overlay-icon {
         opacity: 1;
-      }  
+      }
     }
   }
-
 
   &-vid {
     height: 30rem;
@@ -84,21 +82,65 @@
   }
 }
 
-
 .media-img-parent {
-    position: relative;
-    &:hover {
-        .overlay-icon {
-          opacity: 1;
-        }  
-      }
-    .overlay-icon {
-        position: absolute;
-        bottom: 10%;
-        right: 22%;
-        font-size: 7rem;
-        opacity: 0;
-        transition: opacity 0.2s;
-        pointer-events: none;
-      }
+  position: relative;
+  &:hover {
+    .overlay-icon-img {
+      opacity: 1;
+    }
+  }
 }
+.media-vid-parent {
+  position: relative;
+  &:hover {
+    .overlay-icon-vid {
+      opacity: 1;
+    }
+  }
+}
+
+.overlay-icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  &-img {
+    bottom: 10%;
+    right: 22%;
+    font-size: 7rem;
+    // height: 7rem;
+  }
+
+  &-vid {
+    bottom: 34%;
+    right: 28%;
+    height: 7rem;
+  }
+}
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  .spinner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.6); // optional blur overlay
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  
+    h3 {
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #333;
+    }
+  }

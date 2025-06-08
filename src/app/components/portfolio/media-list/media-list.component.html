@@ -1,12 +1,6 @@
-<section class="media">
+<section class="media" *ngIf="!isAnyLoading">
   <div *ngFor="let item of media" class="media-list">
-    <div
-      class="media-img-parent"
-      *ngIf="
-        serviceId.includes('images') || serviceId.includes('model');
-        else videoEl
-      "
-    >
+    <div class="media-img-parent" *ngIf="isImage(); else videoEl">
       <img
         class="media-img"
         [src]="item.url"
@@ -14,12 +8,31 @@
         loading="lazy"
         (click)="imagePreview($event, item.url)"
       />
-      <div class="overlay-icon">🔍</div>
+      <div class="overlay-icon overlay-icon-img">🔍</div>
+      <!-- <img class="overlay-icon overlay-icon-img" src="../../../../assets/icons/magnifying-glass.svg"> -->
     </div>
     <ng-template #videoEl>
-      <video class="media-vid" controls>
-        <source [src]="item.url" type="video/mp4" />
-      </video>
+      <div class="media-vid-parent" (click)="showVideo(item)">
+        <img
+          *ngIf="!item.showVideo"
+          class="media-vid"
+          [src]="item.videoThumb"
+          [alt]="item.alt"
+        />
+        <video
+          *ngIf="item.showVideo"
+          class="media-vid"
+          controls
+          autoplay
+          preload="none"
+        >
+          <source [src]="item.url" type="video/mp4" />
+        </video>
+        <img
+          class="overlay-icon overlay-icon-vid"
+          src="../../../../assets/icons/play-button.svg"
+        />
+      </div>
     </ng-template>
   </div>
   <div
@@ -37,3 +50,14 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="isAnyLoading" class="spinner-wrapper">
+  <mat-progress-spinner
+    mode="indeterminate"
+    diameter="80"
+    color="primary"
+  ></mat-progress-spinner>
+  <h3 class="text-small">
+    Please wait. We are preparing {{ media.length }} assets for you.
+  </h3>
+</div>

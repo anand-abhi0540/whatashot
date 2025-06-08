@@ -56,6 +56,12 @@ export class ContactFormComponent {
   }
   public requestQuote() {
     this.loading = true;
+    Object.keys(this.form.controls).forEach((key) => {
+      const controlErrors = this.form.get(key)?.errors;
+      if (controlErrors) {
+        console.log(`Field: ${key}`, controlErrors);
+      }
+    });
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.loading = false;
@@ -79,6 +85,7 @@ export class ContactFormComponent {
         },
         error: (err) => {
           console.log('error', err);
+          this.toast.error('Something went wrong');
           this.loading = false;
         },
       });

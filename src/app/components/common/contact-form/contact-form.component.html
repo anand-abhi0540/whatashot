@@ -3,7 +3,9 @@
     <h2 class="text-xm bold">GET A QUOTE</h2>
     <div class="gradient"></div>
     <h2 class="text-xm light tp-1">Let's create your story</h2>
-    <h5 class="text-xs light ">We wont share your information with anyone else.</h5>
+    <h5 class="text-xs light">
+      We wont share your information with anyone else.
+    </h5>
 
     <form
       [formGroup]="form"
@@ -15,7 +17,7 @@
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" required />
       </mat-form-field>
-      
+
       <mat-form-field class="small" appearance="outline">
         <mat-label>Preferred Contact Mode</mat-label>
         <mat-select formControlName="preferredContactMode" required>
@@ -25,16 +27,23 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field *ngIf="form['controls']['preferredContactMode'].value === 'email'" class="small" appearance="outline">
+      <mat-form-field
+        *ngIf="form['controls']['preferredContactMode'].value === 'email'"
+        class="small"
+        appearance="outline"
+      >
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" required />
+        <input matInput formControlName="email" type="email" />
       </mat-form-field>
 
-      <mat-form-field *ngIf="form['controls']['preferredContactMode'].value !== 'email'" class="small" appearance="outline">
+      <mat-form-field
+        *ngIf="form['controls']['preferredContactMode'].value !== 'email'"
+        class="small"
+        appearance="outline"
+      >
         <mat-label>Phone Number</mat-label>
-        <input matInput formControlName="phone" type="phone" required />
+        <input matInput formControlName="phone" type="phone" />
       </mat-form-field>
-
 
       <mat-form-field class="small" appearance="outline">
         <mat-label>Brand Name (Product Type if name not decided)</mat-label>
@@ -66,25 +75,22 @@
         <input matInput formControlName="cinematicVideos" required />
       </mat-form-field>
 
-
       <mat-form-field class="large" appearance="outline">
         <mat-label>Other Requirements</mat-label>
-        <textarea
-          matInput
-          formControlName="otherRequirements"
-        ></textarea>
+        <textarea matInput formControlName="otherRequirements"></textarea>
       </mat-form-field>
 
       <button class="button was-button" type="submit">
-
         <span *ngIf="!loading">Submit</span>
-        <span *ngIf="loading"><mat-progress-spinner
-          *ngIf="loading"
-          mode="indeterminate"
-          diameter="24"
-          color="primary"
-          class="spinner"
-        ></mat-progress-spinner></span>
+        <span *ngIf="loading"
+          ><mat-progress-spinner
+            *ngIf="loading"
+            mode="indeterminate"
+            diameter="24"
+            color="primary"
+            class="spinner"
+          ></mat-progress-spinner
+        ></span>
       </button>
     </form>
   </div>
