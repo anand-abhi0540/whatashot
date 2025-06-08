@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { CategoryDetailComponent } from '../../components/portfolio/category-detail/category-detail.component';
 import { Category } from '../../model/category';
 import { ToastService } from '../../services/toast.service';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -24,24 +25,30 @@ import { ToastService } from '../../services/toast.service';
 export class PortfolioComponent {
   categories: any;
   selectedCategories: Category[] = [];
-  selectedCategoryType: string = 'brands';
+  selectedCategoryType = '';
   constructor(
     private http: HttpClient,
     private router: Router,
-    private toast: ToastService
+    private toast: ToastService,
+    private commonService: CommonService
   ) {}
 
   ngOnInit() {
+    this.commonService.selectedCategory.subscribe(
+      (categoryType) => (this.selectedCategoryType = categoryType)
+    );
     this.http.get<any>('assets/data/categories.json').subscribe((data) => {
       this.categories = data;
-      this.categorize();
+      this.categorize(this.selectedCategoryType);
     });
   }
 
-  public categorize() {
+  public categorize(categoryType: string) {
     if (!this.categories) return;
-    this.selectedCategories = this.categories[this.selectedCategoryType];
+    this.commonService.selectedCategory.next(categoryType);
+    this.selectedCategories = this.categories[categoryType];
   }
+
   public itemSelection(id: string) {
     let selectedItem: Category | undefined;
     if (this.selectedCategoryType !== 'services') {
@@ -58,7 +65,12 @@ export class PortfolioComponent {
         this.toast.error('Something went wrong. Please try again later !');
       }
     } else {
-      this.router.navigate(['/portfolio', this.selectedCategoryType, id]);
+      this.router.navigate([
+        '/portfolio',
+        this.selectedCategoryType,
+        'all',
+        id,
+      ]);
     }
   }
 }

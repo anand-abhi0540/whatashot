@@ -1,13 +1,19 @@
 <section class="category">
   <mat-form-field class="small" appearance="outline">
     <mat-label>Categorize By:</mat-label>
-    <mat-select [(ngModel)]="selectedCategoryType" (selectionChange)="categorize()">
+    <mat-select
+      [value]="selectedCategoryType"
+      (selectionChange)="categorize($event.value)"
+    >
       <mat-option value="brands">Brand</mat-option>
       <mat-option value="services">Services</mat-option>
       <mat-option value="industries">Industry</mat-option>
     </mat-select>
   </mat-form-field>
-  <app-category-detail [data]="selectedCategories"(itemSelected)="itemSelection($event)"></app-category-detail>
+  <app-category-detail
+    [data]="selectedCategories"
+    (itemSelected)="itemSelection($event)"
+  ></app-category-detail>
 </section>
 <!-- <section>
   <iframe

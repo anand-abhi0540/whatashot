@@ -37,8 +37,8 @@
       "services": ["Creative Images", "Listing Images"]
     },
     {
-      "name": "Gour Guitton",
-      "id": "gourguitton",
+      "name": "Guor Guitton",
+      "id": "guor_guitton",
       "services": ["Creative Images", "Listing Images", "Videos"]
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "name": "Hue and Shades",
-      "id": "hue_and_shades",
+      "id": "hue&shades",
       "services": ["Listing Images", "Videos"]
     },
     {
@@ -57,8 +57,8 @@
       "services": ["Videos"]
     },
     {
-      "name": "Mystic Pearl",
-      "id": "mystic_pearl",
+      "name": "Mystique Pearl",
+      "id": "mystique_pearl",
       "services": ["Creative Images", "Listing Images", "Videos", "Model"]
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "name": "TaruTattva",
-      "id": "taru_tattva",
+      "id": "tarutattva",
       "services": ["Videos"]
     }
   ],
@@ -100,8 +100,8 @@
       ]
     },
     {
-      "name": "Dog Food",
-      "id": "dog_food",
+      "name": "Pets",
+      "id": "pets",
       "services": ["Creative Images", "Videos"]
     },
     {
@@ -121,7 +121,7 @@
     },
     {
       "name": "NGO/CSR Stories",
-      "id": "ngo_csr_stories",
+      "id": "ngo",
       "services": ["Videos"]
     }
   ],

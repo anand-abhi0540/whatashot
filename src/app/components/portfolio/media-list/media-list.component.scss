@@ -1,11 +1,104 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
 .media {
-    &-list {
-        align-items: center;
-    }
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+  flex-wrap: wrap;
+  &-list {
+    align-items: center;
+    position: relative;
 
-    &-file {
-        height: 10rem;
-        width: 15rem;
+}
 
+&-img {
+    height: 15rem;
+    width: 15rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      .overlay-icon {
+        opacity: 1;
+      }  
     }
+  }
+
+
+  &-vid {
+    height: 30rem;
+    width: auto;
+  }
+  .overlay {
+    // height: 15rem;
+  }
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .modal-content {
+    width: 100rem;
+    height: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    @include respond(phone-small) {
+      height: 50rem;
+      width: 50rem;
+    }
+  }
+
+  .modal-content img {
+    height: 55rem;
+    width: auto;
+    @include respond(phone-small) {
+      height: 40rem;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    background: #fff;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}
+
+
+.media-img-parent {
+    position: relative;
+    &:hover {
+        .overlay-icon {
+          opacity: 1;
+        }  
+      }
+    .overlay-icon {
+        position: absolute;
+        bottom: 10%;
+        right: 22%;
+        font-size: 7rem;
+        opacity: 0;
+        transition: opacity 0.2s;
+        pointer-events: none;
+      }
 }

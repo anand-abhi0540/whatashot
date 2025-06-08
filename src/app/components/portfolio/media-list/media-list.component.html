@@ -1,13 +1,39 @@
 <section class="media">
-    <div *ngFor="let item of media" class="media-list column-flex">
-        <img 
-        *ngIf="serviceId.includes('images'); else videoEl" 
-        [src]="'https://raw.githubusercontent.com/anand-abhi0540/whatashot-assets/main/' + item.url" 
-        [alt]="item.alt" />        <ng-template #videoEl>
-            <video  controls>
-                <source src="" type="video/mp4" />
-              </video>
-        </ng-template>
-      <h3 class="text-s bold">{{ item.name }}</h3>
+  <div *ngFor="let item of media" class="media-list">
+    <div
+      class="media-img-parent"
+      *ngIf="
+        serviceId.includes('images') || serviceId.includes('model');
+        else videoEl
+      "
+    >
+      <img
+        class="media-img"
+        [src]="item.url"
+        [alt]="item.alt"
+        loading="lazy"
+        (click)="imagePreview($event, item.url)"
+      />
+      <div class="overlay-icon">🔍</div>
     </div>
+    <ng-template #videoEl>
+      <video class="media-vid" controls>
+        <source [src]="item.url" type="video/mp4" />
+      </video>
+    </ng-template>
+  </div>
+  <div
+    *ngIf="imagePreviewUrl"
+    class="modal-backdrop"
+    (click)="imagePreview(null, '')"
+  >
+    <div class="modal-content">
+      <img
+        [src]="imagePreviewUrl"
+        alt="Preview"
+        (click)="$event.stopPropagation()"
+      />
+      <button class="close-btn" (click)="imagePreview($event, '')">×</button>
+    </div>
+  </div>
 </section>

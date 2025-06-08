@@ -11,47 +11,66 @@ import { combineLatest } from 'rxjs';
   styleUrl: './media-list.component.scss',
 })
 export class MediaListComponent {
-  routeType: string = '';
-  routeId: string = '';
+  categoryType: string = '';
+  categoryId: string = '';
   serviceId: string = '';
   media: any[] = [];
+  imagePreviewUrl = '';
+  BASE_URL =
+    'https://raw.githubusercontent.com/anand-abhi0540/whatashot-assets/main/';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.routeType = params.get('categoryType') || '';
-      this.routeId = params.get('categoryId') || '';
+      this.categoryType = params.get('categoryType') || '';
+      this.categoryId = params.get('categoryId') || '';
       this.serviceId = params.get('serviceId') || '';
-      if (this.routeType && this.routeId && this.serviceId) {
+      console.log(this.categoryType ,this.categoryId , this.serviceId);
+      if (this.categoryType && this.categoryId && this.serviceId) {
         this.http
-          .get<any[]>(
-            'https://raw.githubusercontent.com/anand-abhi0540/whatashot-assets/main/brands/assets.json'
-          )
+          .get<any[]>(`${this.BASE_URL}/assets.json`)
           .subscribe((data) => {
             console.log(data);
-            this.media = data.filter(
-              (item) =>
-                item.brand.toLowerCase() ===
-                  this.routeId.split('_').join(' ') &&
-                item.service_type.toLowerCase() ===
-                  this.serviceId.split('_').join(' ')
-            );
-            console.log(this.media);
-            
+            this.media = data.filter((item) => {
+              if (this.categoryType == 'brands') {
+                if (
+                  item.brand.toLowerCase() ===
+                    this.categoryId.split('_').join(' ') &&
+                  item.service_type.toLowerCase() ===
+                    this.serviceId.split('_').join(' ')
+                ) {
+                  item.url = `${this.BASE_URL}${item.url}`;
+                  return item;
+                }
+              } else if (this.categoryType == 'industries') {
+                if (
+                  item.sector.toLowerCase() ===
+                    this.serviceId.split('_').join(' ') &&
+                  item.service_type.toLowerCase() ===
+                    this.serviceId.split('_').join(' ')
+                ) {
+                  item.url = `${this.BASE_URL}${item.url}`;
+                  return item;
+                }
+              } else {
+                if (
+                  item.service_type.toLowerCase() ===
+                    this.serviceId.split('_').join(' ')
+                ) {
+                  item.url = `${this.BASE_URL}${item.url}`;
+                  return item;
+                }
+              }
+            });
           });
       }
     });
   }
-  getMediaUrl(asset: any): string {
-    const base = 'https://raw.githubusercontent.com/your-username/media-repo/main/brands/';
-    const brandPart = asset.brand.replace(/ /g, '_');
-    const sectorPart = asset.sector?.replace(/ /g, '_') || '';
-    const themePart = asset.theme?.replace(/ /g, '_') || '';
-    const folderName = [brandPart, sectorPart, themePart].filter(Boolean).join('-');
-    const serviceFolder = asset.service_type.replace(/ /g, '_');
-    const filename = encodeURIComponent(asset.filename); // handles special characters
-  
-    return `${base}${folderName}/${serviceFolder}/${filename}`;
+  imagePreview(event: Event | null, url: string) {
+    if (event) {
+      event.stopPropagation(); // Prevent modal from closing only for specific targets
+    }
+    this.imagePreviewUrl = url;
   }
 }
