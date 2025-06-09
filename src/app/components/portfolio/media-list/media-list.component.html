@@ -57,7 +57,7 @@
     diameter="80"
     color="primary"
   ></mat-progress-spinner>
-  <h3 class="text-small">
+  <h3 *ngIf="isImage()" class="text-small">
     Please wait. We are preparing {{ media.length }} assets for you.
   </h3>
 </div>

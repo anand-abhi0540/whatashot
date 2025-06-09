@@ -9,12 +9,10 @@
 .logo {
   img {
     display: flex;
-    padding: 2rem;
+    padding: 2rem 0;
     height: 13em;
     width: auto;
-    @include respond(phone) {
-      display: none;
-    }
+
   }
 }
 .menu {
@@ -22,7 +20,21 @@
   justify-content: center;
   gap: 5rem;
   @include respond(phone) {
-    gap: 3rem;
+    display: none !important;
+  }
+  &-mobile {
+    display: none;
+    @include respond(phone) {
+      display: flex !important;
+      flex-direction: column;
+    }
+  }
+}
+.cta {
+  display: flex;
+  gap: 4rem;
+  @include respond(phone) {
+    display: none;
   }
 }
 
@@ -37,4 +49,40 @@
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.menu-mobile-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  background-color: $color-black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+
+  a {
+    padding: 1.5rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+  }
+  app-was-button {
+    width: 80%;
+  }
+
+}
+
+.open {
+  padding: 4rem 0;
+  max-height: 70rem;
+  opacity: 1;
 }

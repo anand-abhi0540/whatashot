@@ -1,21 +1,54 @@
-<div class="mobile-logo"  routerLink="/">
-  <img src="../../../assets/images/logo_tra.png" alt="" />
-<h4 class="text-s bold">WHAT A SHOT PRODUCTIONS</h4>
-</div>
 <div class="header flex-sb">
   <div routerLink="/" class="logo">
     <img src="../../../assets/images/logo_tra.png" alt="" />
   </div>
+
   <div class="menu flex-sb">
     <a routerLink="about" class="text-s bold">ABOUT</a>
     <a routerLink="services" class="text-s bold">SERVICES</a>
     <a routerLink="portfolio" class="text-s bold">OUR WORK</a>
     <!-- <a href="https://drive.google.com/drive/u/0/folders/1iLqob3sio5iee_WtyGfjNOg4ILE3JIwm" class="text-s bold">OUR WORK</a> -->
   </div>
-  <div class="text-s bold">
+  <div class="cta text-s light">
     <app-was-button
+      customClass="was-button--secondary"
       buttonText="CONTACT US"
       buttonHref="#contact-us"
+    ></app-was-button>
+
+    <app-was-button
+      customClass="was-button--primary"
+      buttonText="GET A QUOTE"
+      buttonHref="#quote-section"
+    ></app-was-button>
+  </div>
+  <div class="menu-mobile" (click)="isMenuOpen = !isMenuOpen">
+  <img
+      src="../../../../assets/icons/burger-icon.svg"
+      alt=""
+      class="hamburger"
+    />
+  </div>
+  <div
+    class="menu-mobile-dropdown"
+    [class.open]="isMenuOpen"
+    [hidden]="!isMenuOpen"
+  >
+    <a (click)="menuClicked('/about')" class="text-s bold">ABOUT</a>
+    <a (click)="menuClicked('/services')" class="text-s bold">SERVICES</a>
+    <a (click)="menuClicked('/portfolio')" class="text-s bold">OUR WORK</a>
+    <app-was-button
+      (clicked)="menuClicked('/#contact-us')"
+      customClass="was-button--secondary"
+      buttonText="CONTACT US"
+      buttonHref="#contact-us"
+    ></app-was-button>
+
+    <app-was-button
+      (clicked)="menuClicked('/#quote-section')"
+      customClass="was-button--primary"
+      buttonText="GET A QUOTE"
+      buttonHref="#quote-section"
     ></app-was-button>
   </div>
 </div>
