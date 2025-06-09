@@ -1,18 +1,26 @@
+@use "../../../../assets/styles/abstracts/variables" as *;
+@use "../../../../assets/styles/abstracts/mixins" as *;
 .categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  .category {
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    .category {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 5rem;
-      gap: 2rem;
-      .folder {
-        height: 10rem;
-        width: 15rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    .folder {
+      height: 10rem;
+      width: 15rem;
+      @include respond(phone) {
+        height: 8rem;
+        width: 12rem;
+      }
+      @include respond(phone-small) {
+        height: 6rem;
+        width: 9rem;
       }
     }
   }
-  
+}
