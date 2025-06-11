@@ -21,18 +21,17 @@ export class MediaListComponent {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  async ngOnInit() {
+   ngOnInit() {
     this.route.paramMap.subscribe(async (params) => {
       this.categoryType = params.get('categoryType') || '';
       this.categoryId = params.get('categoryId') || '';
       this.serviceId = params.get('serviceId') || '';
-
+      this.isAnyLoading = true;
       if (this.categoryType && this.categoryId && this.serviceId) {
         this.http
           .get<any[]>(`${EXT_ASSETS_BASE_URL}/assets.json`)
-          .subscribe(async (data) => {
+          .subscribe( (data) => {
             this.media = data.filter((item) => {
-              // Your filtering logic, updating item.url
               const catId = this.categoryId.split('_').join(' ').toLowerCase();
               const srvId = this.serviceId.split('_').join(' ').toLowerCase();
 
@@ -56,8 +55,6 @@ export class MediaListComponent {
               }
             });
             this.isAnyLoading = false;
-            // Now that media is set, wait for thumbnails:
-            // await this.loadMediaThumbnails();
           });
       }
     });
