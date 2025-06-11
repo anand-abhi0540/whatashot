@@ -1,0 +1,1 @@
+export const EXT_ASSETS_BASE_URL = 'https://raw.githubusercontent.com/anand-abhi0540/whatashot-assets/main/';
