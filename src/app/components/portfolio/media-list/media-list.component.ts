@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ActivatedRoute } from '@angular/router';
 import { EXT_ASSETS_BASE_URL } from '../../../constants/common';
@@ -18,10 +18,12 @@ export class MediaListComponent {
   isAnyLoading: boolean = true;
   media: any[] = [];
   imagePreviewUrl = '';
-
+  @ViewChildren('videoPlayer') videoPlayers!: QueryList<
+    ElementRef<HTMLVideoElement>
+  >;
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-   ngOnInit() {
+  ngOnInit() {
     this.route.paramMap.subscribe(async (params) => {
       this.categoryType = params.get('categoryType') || '';
       this.categoryId = params.get('categoryId') || '';
@@ -30,16 +32,14 @@ export class MediaListComponent {
       if (this.categoryType && this.categoryId && this.serviceId) {
         this.http
           .get<any[]>(`${EXT_ASSETS_BASE_URL}/assets.json`)
-          .subscribe( (data) => {
+          .subscribe((data) => {
             this.media = data.filter((item) => {
               const catId = this.categoryId.split('_').join(' ').toLowerCase();
               const srvId = this.serviceId.split('_').join(' ').toLowerCase();
 
               item.url = `${EXT_ASSETS_BASE_URL}${item.url}`;
-              if (!this.isImage()) {
-                item.showVideo = false;
-                item.thumbnail = `${EXT_ASSETS_BASE_URL}${item.thumbnail}`;
-              }
+              item.showFile = false;
+              item.thumbnail = `${EXT_ASSETS_BASE_URL}${item.thumbnail}`;
               if (this.categoryType === 'brands') {
                 return (
                   item.brand.toLowerCase() === catId &&
@@ -66,13 +66,25 @@ export class MediaListComponent {
     );
   }
 
-  showVideo(item: any): void {
-    item.showVideo = true;
+  showFile(selectedItem: any): void {
+    if (!this.isImage()) {
+      this.media.forEach((item: any) => {
+        if (item !== selectedItem && item.showFile) {
+          item.showFile = false; // hide video
+        }
+      });
+      this.videoPlayers?.forEach((player) => {
+        const videoEl = player.nativeElement;
+        videoEl.pause();
+        videoEl.currentTime = 0;
+      });
+    }
+    selectedItem.showFile = true;
   }
 
   imagePreview(event: Event | null, url: string) {
     if (event) {
-      event.stopPropagation(); // Prevent modal from closing only for specific targets
+      event.stopPropagation();
     }
     this.imagePreviewUrl = url;
   }

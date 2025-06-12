@@ -1,26 +1,37 @@
 <section class="media" *ngIf="!isAnyLoading">
   <div *ngFor="let item of media" class="media-list">
-    <div class="media-img-parent" *ngIf="isImage(); else videoEl">
+    <div
+      (click)="imagePreview($event, item.url)"
+      class="media-img-parent"
+      *ngIf="isImage(); else videoEl"
+    >
       <img
+        *ngIf="!item.showFile"
+        class="media-vid"
+        [src]="item.thumbnail"
+        [alt]="item.alt"
+      />
+      <img
+        *ngIf="item.showFile"
         class="media-img"
         [src]="item.url"
         [alt]="item.alt"
         loading="lazy"
-        (click)="imagePreview($event, item.url)"
       />
       <div class="overlay-icon overlay-icon-img">🔍</div>
       <!-- <img class="overlay-icon overlay-icon-img" src="../../../../assets/icons/magnifying-glass.svg"> -->
     </div>
     <ng-template #videoEl>
-      <div class="media-vid-parent" (click)="showVideo(item)">
+      <div class="media-vid-parent" (click)="showFile(item)">
         <img
-          *ngIf="!item.showVideo"
+          *ngIf="!item.showFile"
           class="media-vid"
           [src]="item.thumbnail"
           [alt]="item.alt"
         />
         <video
-          *ngIf="item.showVideo"
+          #videoPlayer
+          *ngIf="item.showFile"
           class="media-vid"
           controls
           autoplay
@@ -57,7 +68,7 @@
     diameter="80"
     color="primary"
   ></mat-progress-spinner>
-  <h3 *ngIf="isImage()" class="text-small">
+  <h3 *ngIf="isImage() && media.length" class="text-small">
     Please wait. We are preparing {{ media.length }} assets for you.
   </h3>
 </div>

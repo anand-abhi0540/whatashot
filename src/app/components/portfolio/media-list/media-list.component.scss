@@ -80,7 +80,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     @include respond(phone-small) {
       height: 50rem;
       width: 50rem;
@@ -96,9 +95,9 @@
   }
 
   .close-btn {
-    position: absolute;
-    top: 20%;
-    right: 20%;
+    position: relative;
+    bottom: 28%;
+    right: 1rem;
     background: #fff;
     border: none;
     font-size: 1.5rem;
