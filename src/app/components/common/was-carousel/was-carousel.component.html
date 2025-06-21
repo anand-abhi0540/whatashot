@@ -2,7 +2,7 @@
   <button (click)="onClick('prev')">‹</button>
   <div
     class="slides"
-    [style.transform]="'translateX(-' + currentSlide * 25 + 'rem)'"
+    [style.transform]="'translateX(-' + currentSlide * 25 + '%)'"
   >
     <ng-content></ng-content>
   </div>

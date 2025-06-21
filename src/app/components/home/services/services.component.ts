@@ -3,8 +3,8 @@ import { SectionIntroComponent } from '../../common/section-intro/section-intro.
 import { WasButtonComponent } from '../../common/was-button/was-button.component';
 import { CommonModule } from '@angular/common';
 import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';
-import { WasCarouselComponent } from '../../common/was-carousel/was-carousel.component';
 import { EXT_ASSETS_BASE_URL } from '../../../constants/common';
+import { CarouselModule } from 'primeng/carousel';
 
 @Component({
   selector: 'app-services',
@@ -13,16 +13,20 @@ import { EXT_ASSETS_BASE_URL } from '../../../constants/common';
     SectionIntroComponent,
     WasButtonComponent,
     SafeUrlPipe,
-    WasCarouselComponent,
+    CarouselModule,
   ],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-  @ViewChildren('videoEl') videoElements!: QueryList<ElementRef<HTMLVideoElement>>;
+  getSeverity(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  @ViewChildren('videoEl') videoElements!: QueryList<
+    ElementRef<HTMLVideoElement>
+  >;
   public sectionIntroPrimaryText = 'WHY CHOOSE';
   public sectionIntroSecondaryText = 'WHAT A SHOT';
-  public currentSlide = 0;
   public sectionIntroDescription =
     'We turn ideas into striking visuals that captivate and resonate. Through bold creativity and precision, we deliver visuals that leave a lasting impression.';
   public services = [
@@ -40,7 +44,7 @@ export class ServicesComponent {
     },
     {
       serviceName: 'UGC Content',
-      serviceResource:`${EXT_ASSETS_BASE_URL}brands/Aviva_Beauty-Beauty_and_Personal_Care-Clinical:Luxury/UGC/UGC_Aviva_Mosturiser.mp4`,
+      serviceResource: `${EXT_ASSETS_BASE_URL}brands/Aviva_Beauty-Beauty_and_Personal_Care-Clinical:Luxury/UGC/UGC_Aviva_Mosturiser.mp4`,
       serviceDetails:
         'Authentic user-generated content to boost engagement and trust.',
     },
@@ -49,21 +53,39 @@ export class ServicesComponent {
       serviceResource: `${EXT_ASSETS_BASE_URL}ngo/GoodYear-Ngo_CSR/Videos/Goodyear_India_Solar_Panel_Installation.mp4`,
       serviceDetails:
         'Compelling stories that spotlight social impact and community efforts.',
-    }
+    },
   ];
+  public responsiveOptions: any[] = [];
 
-  public changeSlide(action: string) {
-    this.currentSlide =
-      action === 'prev'
-        ? (this.currentSlide - 1 + this.services.length) % this.services.length
-        : (this.currentSlide + 1) % this.services.length;
+  ngOnInit() {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 4,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
   }
-
   ngAfterViewInit() {
     this.videoElements.forEach((videoRef) => {
       const video = videoRef.nativeElement;
-      video.muted = true;      // enforce muted
-      video.autoplay = true;   // ensure autoplay is enabled
+      video.muted = true; // enforce muted
+      video.autoplay = true; // ensure autoplay is enabled
       video.play().catch((e) => console.warn('Autoplay failed', e));
     });
   }

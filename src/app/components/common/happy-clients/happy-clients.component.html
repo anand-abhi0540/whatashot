@@ -1,19 +1,19 @@
 <section id="happy-clients-section">
-  <h2 class="text-l bold ">Our Happy Clients</h2>
-  <div class="client-carousel">
-    <div
-      class="carousel-track"
-      [style.transform]="'translateX(' + trackPosition + 'px)'"
-    >
-      <div
-        class="carousel-track-item"
-        *ngFor="let client of clientNames; let i = index"
-      >
-      <img
-      [style.width]="client === 'SI' ? '15rem' : 'auto'"
-      [src]="'../../../../assets/images/' + client + '.png'"
-      alt=""
-    />      </div>
-    </div>
-  </div>
+  <h2 class="text-l bold">Our Happy Clients</h2>
+  <p-carousel
+  [value]="clientNames"
+  [numVisible]="6"
+  [numScroll]="2"
+  [circular]="true"
+  [autoplayInterval]="1000"
+  [styleClass]="'custom-carousel'"
+>
+  <ng-template let-client #item>
+    <img
+          [style.width]="client === 'SI' ? '15rem' : 'auto'"
+          [src]="'../../../../assets/images/' + client + '.png'"
+          alt=""
+        />
+    </ng-template>
+    </p-carousel>
 </section>

@@ -4,11 +4,18 @@
     [secondaryText]="sectionIntroSecondaryText"
     [description]="sectionIntroDescription"
   ></app-section-intro>
-  <was-carousel
-    [currentSlide]="currentSlide"
-    (buttonClicked)="changeSlide($event)"
+  <p-carousel
+    [value]="testimonials"
+    [numVisible]="3"
+    [numScroll]="3"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    [autoplayInterval]="3000"
+    [styleClass]="'custom-carousel'"
   >
-    <div class="card" *ngFor="let testimonial of testimonials">
+    <ng-template let-testimonial #item>
+
+    <div class="card">
       <img
         [src]="'../../../../assets/images/' + testimonial.imgUrl"
         alt=""
@@ -18,5 +25,6 @@
       <h5 class="text-xs">{{ testimonial.brandName }}</h5>
       <p class="text-s italic">{{ testimonial.feedback }}</p>
     </div>
-  </was-carousel>
+  </ng-template>
+  </p-carousel>
 </section>

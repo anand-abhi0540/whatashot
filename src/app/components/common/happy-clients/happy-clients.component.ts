@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CarouselModule } from 'primeng/carousel';
 
 @Component({
   selector: 'app-happy-clients',
-  imports: [CommonModule],
+  imports: [CommonModule, CarouselModule],
   templateUrl: './happy-clients.component.html',
   styleUrl: './happy-clients.component.scss'
 })
 export class HappyClientsComponent {
-  public clientNames: string[] = ['MP','AV','AB','AR','BC','TT','GG','SI'];
+  public clientNames: string[] = ['MP','AV','AB','AR', 'SI','BC','TT', 'GG'];
   itemWidth: number = 100;
   trackPosition: number = 0;
   scrollSpeed: number = 1;

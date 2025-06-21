@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { SectionIntroComponent } from '../../common/section-intro/section-intro.component';
 import { CommonModule } from '@angular/common';
-import { WasCarouselComponent } from "../../common/was-carousel/was-carousel.component";
+import { CarouselModule } from 'primeng/carousel';
 
 @Component({
   selector: 'app-testimonials',
-  imports: [CommonModule, SectionIntroComponent, WasCarouselComponent],
+  imports: [CommonModule, SectionIntroComponent, CarouselModule],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent {
-[x: string]: any;
+  [x: string]: any;
   public sectionIntroPrimaryText = 'RAW REVIEWS';
   public sectionIntroSecondaryText = 'REAL RESULTS';
   public currentSlide = 0;
@@ -48,15 +48,42 @@ export class TestimonialsComponent {
     {
       clientName: 'Ashok',
       brandName: 'AirBlue',
-      feedback: 'I had the pleasure of working with the team at What A Shot Productions and I must say, they exceeded all my expectations. The video created was incredibly focused, delivering the exact message we wanted to convey to our customers. They have a knack for producing high-quality videos that align perfectly with the allocated budget. The quality of the video was superb, and it truly captured the essence of our brand. If you’re looking for someone who delivers the right output at the right price, I highly recommend him!',
+      feedback:
+        'I had the pleasure of working with the team at What A Shot Productions and I must say, they exceeded all my expectations. The video created was incredibly focused, delivering the exact message we wanted to convey to our customers. They have a knack for producing high-quality videos that align perfectly with the allocated budget. The quality of the video was superb, and it truly captured the essence of our brand. If you’re looking for someone who delivers the right output at the right price, I highly recommend him!',
       imgUrl: 'AB_solid.jpg',
     },
   ];
+  public responsiveOptions: any[] = [];
 
+  ngOnInit() {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 3,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
+  }
   public changeSlide(action: string) {
     this.currentSlide =
       action === 'prev'
-        ? (this.currentSlide - 1 + this.testimonials.length) % this.testimonials.length
+        ? (this.currentSlide - 1 + this.testimonials.length) %
+          this.testimonials.length
         : (this.currentSlide + 1) % this.testimonials.length;
   }
 }
