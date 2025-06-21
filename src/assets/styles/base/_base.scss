@@ -96,10 +96,19 @@ td {
   pointer-events: none;
 }
 
-.toast-success, .toast-error, .toast-info, .toast-warn {
+.toast-success,
+.toast-error,
+.toast-info,
+.toast-warn {
   color: white !important;
-  font-weight: 500;
-  font-size: 1.4rem;
+  font-weight: 500 !important;
+  font-size: 1.4rem !important;
+  padding: 2rem !important;
+  width: 30rem !important;
+  border: 1px solid $color-white !important;
+  svg {
+    margin-right: 1rem;
+  }
 }
 
 .toast-success {
@@ -107,7 +116,7 @@ td {
 }
 
 .toast-error {
-  background-color: $color-error !important;
+  background-color: $color-primary !important;
   border-radius: 0 !important;
 }
 
@@ -125,7 +134,12 @@ td {
   }
 }
 
-.mat-mdc-select-panel {
+.p-select-label {
+  padding: 1.8rem !important;
+  font-size: 1.3rem;
+}
+
+.p-select-list-container {
   // background: linear-gradient(
   //   to right,
   //   rgba(90, 116, 144, 0.92) 0%,
@@ -136,44 +150,59 @@ td {
   background: white !important;
   color: black;
   border: 1px solid white;
-}
-.mat-mdc-form-field {
-  .mat-mdc-text-field-wrapper {
+  font-size: 1.3rem;
+  padding: 2rem 0;
+  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  .p-select-option {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    &-selected {
+      background-color: $color-secondary !important;
+    }
   }
-
-  mat-label {
+  .p-focus {
+    background-color: $color-tertiary !important;
+  }
+}
+.p-select-dropdown {
+  margin-right: 1rem;
+}
+.p-floatlabel {
+  label {
     font-size: 1.3rem !important;
     padding-left: 1.2rem !important;
     color: $color-white;
+    left: 0;
   }
 
   .mat-mdc-select-arrow {
     width: 30px;
   }
-  input.mat-mdc-input-element,
-  textarea.mat-mdc-input-element,
-  .mat-mdc-select-value-text {
+  input,
+  textarea,
+  select {
     font-size: 1.3rem !important;
     padding-left: 1.2rem !important;
     color: $color-white !important;
   }
 }
-.mat-mdc-progress-spinner {
+p-progress-spinner {
   svg {
     circle {
       stroke: $color-tertiary !important;
     }
   }
 }
-
-.mat-mdc-form-field {
-  --mdc-outlined-text-field-focus-outline-color: white; // Remove blue
-  --mdc-outlined-text-field-focus-label-color: white; // Optional: set label color on focus
-  --mdc-outlined-text-field-outline-color: rgba(
-    255,
-    255,
-    255,
-    0.6
-  ); // Optional: default border color
-  --mdc-outlined-text-field-hover-outline-color: white;
+.p-breadcrumb-item {
+  font-style: $primary-font;
+  font-size: 1.3rem !important;
+  padding: 1rem !important;
+  color: $color-white !important;
+}
+.p-breadcrumb-item-icon {
+  font-size: 1.5rem !important;
 }

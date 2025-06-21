@@ -1,3 +1,4 @@
+<app-was-breadcrumb [breadcrumbs]="breadcrumbs"></app-was-breadcrumb>
 <section class="media" *ngIf="!isAnyLoading">
   <div *ngFor="let item of media" class="media-list">
     <div
@@ -63,11 +64,12 @@
 </section>
 
 <div *ngIf="isAnyLoading" class="spinner-wrapper">
-  <mat-progress-spinner
-    mode="indeterminate"
-    diameter="80"
-    color="primary"
-  ></mat-progress-spinner>
+  <p-progress-spinner
+    strokeWidth="8"
+    fill="transparent"
+    animationDuration=".5s"
+    [style]="{ width: '50px', height: '50px' }"
+  />
   <h3 *ngIf="isImage() && media.length" class="text-small">
     Please wait. We are preparing {{ media.length }} assets for you.
   </h3>

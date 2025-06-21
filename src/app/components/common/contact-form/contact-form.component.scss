@@ -53,15 +53,16 @@
     flex-wrap: wrap;
     padding: 3rem 0;
 
-    mat-mdc-form-field {
-      padding: 2rem;
+    p-floatlabel, p-select {
       box-sizing: border-box;
-      border: 1px solid $color-white;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       margin-bottom: 2rem;
       background-color: transparent;
       color: $color-white;
       outline: none;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 49%;
+      height: 6rem;
       &:focus {
         border-color: transparent; /* accent color from your gradient palette */
         box-shadow: 0 0 0 4px rgba(176, 198, 218, 0.2);
@@ -69,11 +70,21 @@
       &::placeholder {
         color: rgba(255, 255, 255, 0.6);
       }
-      input {
+      input,
+      textarea {
         margin-left: 2rem;
         font-size: 1.2rem;
+        height: 6rem;
+        width: 95%;
+      }
+      textarea {
+        padding: 2rem;
+      }
+      label {
+        left: 0;
       }
     }
+    
     .small {
       flex-basis: 49%;
     }

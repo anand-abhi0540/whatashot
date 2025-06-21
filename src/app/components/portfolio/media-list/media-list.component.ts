@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ActivatedRoute } from '@angular/router';
 import { EXT_ASSETS_BASE_URL } from '../../../constants/common';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CommonService } from '../../../services/common.service';
+import { WasBreadcrumbComponent } from '../../common/was-breadcrumb/was-breadcrumb.component';
 
 @Component({
   selector: 'app-media-list',
-  imports: [CommonModule, MatProgressSpinner],
+  imports: [CommonModule, ProgressSpinnerModule, WasBreadcrumbComponent],
   templateUrl: './media-list.component.html',
   styleUrl: './media-list.component.scss',
 })
@@ -18,10 +20,15 @@ export class MediaListComponent {
   isAnyLoading: boolean = true;
   media: any[] = [];
   imagePreviewUrl = '';
+  breadcrumbs: any[] = [{ icon: 'pi pi-home', url: '/' }];
   @ViewChildren('videoPlayer') videoPlayers!: QueryList<
     ElementRef<HTMLVideoElement>
   >;
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private commonService: CommonService
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(async (params) => {
@@ -34,26 +41,51 @@ export class MediaListComponent {
           .get<any[]>(`${EXT_ASSETS_BASE_URL}/assets.json`)
           .subscribe((data) => {
             this.media = data.filter((item) => {
-              const catId = this.categoryId.split('_').join(' ').toLowerCase();
-              const srvId = this.serviceId.split('_').join(' ').toLowerCase();
+              const catId = this.commonService.formatTextFromSnakeCase(
+                this.categoryId
+              );
+              const srvId = this.commonService.formatTextFromSnakeCase(
+                this.serviceId
+              );
 
               item.url = `${EXT_ASSETS_BASE_URL}${item.url}`;
               item.showFile = false;
               item.thumbnail = `${EXT_ASSETS_BASE_URL}${item.thumbnail}`;
               if (this.categoryType === 'brands') {
                 return (
-                  item.brand.toLowerCase() === catId &&
-                  item.service_type.toLowerCase() === srvId
+                  item.brand.toUpperCase() === catId &&
+                  item.service_type.toUpperCase() === srvId
                 );
               } else if (this.categoryType === 'industries') {
                 return (
-                  item.sector.toLowerCase() === catId &&
-                  item.service_type.toLowerCase() === srvId
+                  item.sector.toUpperCase() === catId &&
+                  item.service_type.toUpperCase() === srvId
                 );
               } else {
-                return item.service_type.toLowerCase() === srvId;
+                return item.service_type.toUpperCase() === srvId;
               }
             });
+            this.breadcrumbs = [
+              ...this.breadcrumbs,
+              {
+                label: this.commonService.formatTextFromSnakeCase(
+                  this.categoryType
+                ),
+                url: `/portfolio?categoryType=${this.categoryType}`,
+              },
+              {
+                label: this.commonService.formatTextFromSnakeCase(
+                  this.categoryId
+                ),
+                url: this.categoryId == 'all' ? '' : `/portfolio/${this.categoryType}/${this.categoryId}`,
+              },
+              {
+                label: this.commonService.formatTextFromSnakeCase(
+                  this.serviceId
+                ),
+                url: '',
+              },
+            ];
             this.isAnyLoading = false;
           });
       }

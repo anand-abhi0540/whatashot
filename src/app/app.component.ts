@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { HomeComponent } from "./pages/home/home.component";
 import { HeaderComponent } from "./components/common/header/header.component";
-
+import { ToastModule } from 'primeng/toast';
 declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, HeaderComponent]
+  imports: [RouterOutlet, HeaderComponent, ToastModule]
 })
 export class AppComponent {
   title = 'whatashot';

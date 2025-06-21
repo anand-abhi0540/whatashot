@@ -1,5 +1,5 @@
 <section class="category">
-  <mat-form-field class="small" appearance="outline">
+  <!-- <mat-form-field class="small" appearance="outline">
     <mat-label>Categorize By:</mat-label>
     <mat-select
       [value]="selectedCategoryType"
@@ -9,7 +9,17 @@
       <mat-option value="services">Services</mat-option>
       <mat-option value="industries">Industry</mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
+  <p-select
+    [options]="categoryTypes"
+    [(ngModel)]="selectedCategoryType"
+    (ngModelChange)="categorize()"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Categorize By:"
+  />
+  <app-was-breadcrumb [breadcrumbs]="breadcrumbs"></app-was-breadcrumb>
+
   <app-category-detail
     [data]="selectedCategories"
     (itemSelected)="itemSelection($event)"

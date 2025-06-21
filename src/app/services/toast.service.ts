@@ -1,36 +1,35 @@
 // toast.service.ts
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private toastr: MessageService ) {}
 
-  private open(message: string, panelClass: string = '', duration = 30000) {
-    console.log(message);
-    this.snackBar.open(message, 'Close', {
-      duration,
-      panelClass,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
+  private open(severity: string, summary: string, detail: string, styleClass: string) {
+    this.toastr.add({
+      severity,
+      detail,
+      life: 3000,
+      styleClass
     });
   }
 
   success(message: string) {
-    this.open(message, 'toast-success');
+    this.open('contrast','Success', message, 'toast-success');
   }
 
   error(message: string) {
-    this.open(message, 'toast-error');
+    this.open('error', 'Error', message, 'toast-error');
   }
 
   info(message: string) {
-    this.open(message, 'toast-info');
+    this.open('info', 'Info', message, 'toast-info');
   }
 
   warn(message: string) {
-    this.open(message, 'toast-warn');
+    this.open('warn', 'Warn', message, 'toast-warn');
   }
 }

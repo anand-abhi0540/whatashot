@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { WasButtonComponent } from '../was-button/was-button.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {
@@ -9,23 +8,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastService } from '../../../services/toast.service';
+import { SelectModule } from 'primeng/select';
 @Component({
   selector: 'app-contact-form',
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatProgressSpinner,
+    InputTextModule,
+    FloatLabelModule,
+    ProgressSpinnerModule,
+    SelectModule
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
@@ -33,6 +30,11 @@ import { ToastService } from '../../../services/toast.service';
 export class ContactFormComponent {
   public form: FormGroup;
   public loading: boolean = false;
+  contactType: any[] = [
+    { label: 'Email', value: 'email' },
+    { label: 'Phone', value: 'phone' },
+    { label: 'Whatsapp', value: 'whatsapp' }
+  ];
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,

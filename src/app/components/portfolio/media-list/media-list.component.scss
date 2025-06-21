@@ -3,8 +3,6 @@
 .media {
   display: grid;
   grid-template-columns: repeat(5, 1fr); // 5 items per row by default
-  gap: 2rem;
-  justify-items: center;
 
   @include respond(tab-land) {
     grid-template-columns: repeat(4, 1fr);

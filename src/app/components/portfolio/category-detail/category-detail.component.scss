@@ -1,26 +1,39 @@
 @use "../../../../assets/styles/abstracts/variables" as *;
 @use "../../../../assets/styles/abstracts/mixins" as *;
 .categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); // 5 items per row by default
+  gap: 2rem;
+  justify-items: center;
+
+  @include respond(tab-land) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond(phone) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond(phone-small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .category {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
     .folder {
       height: 10rem;
       width: 15rem;
+
       @include respond(phone) {
-        height: 8rem;
-        width: 12rem;
-      }
-      @include respond(phone-small) {
-        height: 6rem;
-        width: 9rem;
+        height: 12rem;
+        width: auto;
       }
     }
   }
 }
+

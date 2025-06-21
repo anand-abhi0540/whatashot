@@ -13,84 +13,157 @@
       class="contact-form flex"
       novalidate
     >
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" required />
-      </mat-form-field>
+      </mat-form-field> -->
+      <p-floatlabel variant="on">
+        <input pInputText id="name" formControlName="name" />
+        <label for="name">Name</label>
+      </p-floatlabel>
 
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>Preferred Contact Mode</mat-label>
         <mat-select formControlName="preferredContactMode" required>
           <mat-option selected value="email">Email</mat-option>
           <mat-option value="phone">Phone</mat-option>
           <mat-option value="whatsapp">Whatsapp</mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
+      <p-select
+        [options]="contactType"
+        formControlName="preferredContactMode"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Categorize By:"
+        class="w-full"
+      />
 
-      <mat-form-field
+      <!-- <mat-form-field
         *ngIf="form['controls']['preferredContactMode'].value === 'email'"
         class="small"
         appearance="outline"
       >
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field
+      <p-floatlabel
+        variant="on"
+        *ngIf="form['controls']['preferredContactMode'].value == 'email'"
+      >
+        <input pInputText id="email" formControlName="email" />
+        <label for="email">Email</label>
+      </p-floatlabel>
+
+      <p-floatlabel
+        variant="on"
+        *ngIf="form['controls']['preferredContactMode'].value !== 'email'"
+      >
+        <input pInputText id="phone" formControlName="phone" />
+        <label for="phone">Phone</label>
+      </p-floatlabel>
+
+      <!-- <mat-form-field
         *ngIf="form['controls']['preferredContactMode'].value !== 'email'"
         class="small"
         appearance="outline"
       >
         <mat-label>Phone Number</mat-label>
         <input matInput formControlName="phone" type="phone" />
-      </mat-form-field>
+      </mat-form-field> -->
+      <p-floatlabel variant="on">
+        <input pInputText id="brandName" formControlName="brandName" />
+        <label for="brandName"
+          >Brand Name (Product Type if name not decided)</label
+        >
+      </p-floatlabel>
 
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>Brand Name (Product Type if name not decided)</mat-label>
         <input matInput formControlName="brandName" required />
-      </mat-form-field>
+      </mat-form-field> -->
 
       <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>Product Type</mat-label>
         <input matInput formControlName="productType" required />
       </mat-form-field> -->
 
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>No Of Products</mat-label>
         <input matInput formControlName="productUnits" required />
-      </mat-form-field>
+      </mat-form-field> -->
+      <p-floatlabel variant="on">
+        <input pInputText id="productUnits" formControlName="productUnits" />
+        <label for="productUnits">No Of Products</label>
+      </p-floatlabel>
 
-      <mat-form-field class="small" appearance="outline">
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>No Of Creative Photos</mat-label>
         <input matInput formControlName="creativePhotoUnits" required />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field class="small" appearance="outline">
+      <p-floatlabel variant="on">
+        <input
+          pInputText
+          id="creativePhotoUnits"
+          formControlName="creativePhotoUnits"
+        />
+        <label for="creativePhotoUnits">No Of Creative Photos</label>
+      </p-floatlabel>
+
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>No Of Listing Photos</mat-label>
         <input matInput formControlName="listingPhotoUnits" required />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field class="small" appearance="outline">
+      <p-floatlabel variant="on">
+        <input
+          pInputText
+          id="listingPhotoUnits"
+          formControlName="listingPhotoUnits"
+        />
+        <label for="listingPhotoUnits">No Of Listing Photos</label>
+      </p-floatlabel>
+
+      <!-- <mat-form-field class="small" appearance="outline">
         <mat-label>No Of Cinematic Videos</mat-label>
         <input matInput formControlName="cinematicVideos" required />
-      </mat-form-field>
+      </mat-form-field> -->
+      <p-floatlabel variant="on">
+        <input
+          pInputText
+          id="cinematicVideos"
+          formControlName="cinematicVideos"
+        />
+        <label for="cinematicVideos">No Of Cinematic Videos</label>
+      </p-floatlabel>
 
-      <mat-form-field class="large" appearance="outline">
+      <!-- <mat-form-field class="large" appearance="outline">
         <mat-label>Other Requirements</mat-label>
         <textarea matInput formControlName="otherRequirements"></textarea>
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <p-floatlabel class="large" variant="on">
+        <textarea
+          pInputText
+          id="otherRequirements"
+          formControlName="otherRequirements"
+        ></textarea>
+        <label for="otherRequirements">Other Requirements</label>
+      </p-floatlabel>
 
       <button class="button was-button was-button--secondary" type="submit">
         <span *ngIf="!loading">Submit</span>
-        <span *ngIf="loading"
-          ><mat-progress-spinner
-            *ngIf="loading"
+        <span *ngIf="loading">
+          <p-progress-spinner
+            strokeWidth="4"
+            fill="transparent"
+            animationDuration=".5s"
             mode="indeterminate"
-            diameter="24"
-            color="primary"
-            class="spinner"
-          ></mat-progress-spinner
-        ></span>
+            [style]="{ width: '20px', height: '20px' }"
+          />
+        </span>
       </button>
     </form>
   </div>

@@ -7,4 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CommonService {
   constructor() {}
   public selectedCategory = new BehaviorSubject<string>('brands');
+
+  formatTextFromSnakeCase(text: string) {
+    return text.split('_').join(' ').toUpperCase();
+  }
 }

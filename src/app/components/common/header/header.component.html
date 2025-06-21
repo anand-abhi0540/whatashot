@@ -6,7 +6,12 @@
   <div class="menu flex-sb">
     <a routerLink="about" class="text-s bold">ABOUT</a>
     <a routerLink="services" class="text-s bold">SERVICES</a>
-    <a routerLink="portfolio" class="text-s bold">OUR WORK</a>
+    <a
+      routerLink="portfolio"
+      [queryParams]="{ categoryType: 'brands' }"
+      class="text-s bold"
+      >OUR WORK</a
+    >
     <!-- <a href="https://drive.google.com/drive/u/0/folders/1iLqob3sio5iee_WtyGfjNOg4ILE3JIwm" class="text-s bold">OUR WORK</a> -->
   </div>
   <div class="cta text-s light">
@@ -23,7 +28,7 @@
     ></app-was-button>
   </div>
   <div class="menu-mobile" (click)="isMenuOpen = !isMenuOpen">
-  <img
+    <img
       src="../../../../assets/icons/burger-icon.svg"
       alt=""
       class="hamburger"
