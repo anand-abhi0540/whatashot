@@ -85,6 +85,11 @@
       "name": "TaruTattva",
       "id": "tarutattva",
       "services": ["Videos"]
+    },
+    {
+      "name": "Good Year",
+      "id": "goodyear",
+      "services": ["Videos"]
     }
   ],
   "industries": [
