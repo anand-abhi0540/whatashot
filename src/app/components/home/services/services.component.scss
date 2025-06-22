@@ -6,9 +6,9 @@
       height: 48rem;
       perspective: 100rem;
       position: relative;
-      &:last-child {
-        width: 25rem;
-      }
+      @include respond(phone) {
+        width: 22rem;
+        height: 40rem;      }
 
       &:hover .card-front {
         transform: rotateY(-180deg);
