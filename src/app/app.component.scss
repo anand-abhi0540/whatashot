@@ -11,4 +11,17 @@
     @include respond(phone) {
         padding: 0 3rem;
     }
+    .share-widget {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        background: rgba(0, 0, 0, 0.6); // optional for dark background
+        border-radius: 8px 0 0 8px;
+      }
 }

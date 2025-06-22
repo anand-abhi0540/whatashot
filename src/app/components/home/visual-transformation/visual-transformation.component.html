@@ -1,0 +1,34 @@
+<section id="visual-transformation">
+  <app-section-intro
+    [primaryText]="sectionIntroPrimaryText"
+    [secondaryText]="sectionIntroSecondaryText"
+    [description]="sectionIntroDescription"
+  ></app-section-intro>
+  <p-carousel
+    [value]="transformations"
+    [numVisible]="2"
+    [numScroll]="1"
+    [circular]="true"
+  >
+    <ng-template let-transformation #item>
+      <div
+        class="card flex justify-center"
+        style="max-width: 100%; padding: 2rem; overflow: hidden"
+      >
+        <p-imagecompare class="sm:!w-96 shadow-lg rounded-2xl">
+          <ng-template #left>
+            <img
+              ariaLabelledby="after"
+              class="left-img"
+              alt="after"
+              [src]="transformation.after"
+            />
+          </ng-template>
+          <ng-template #right>
+            <img class="right-img" alt="before" [src]="transformation.before" />
+          </ng-template>
+        </p-imagecompare>
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>

@@ -7,10 +7,11 @@ import { HappyClientsComponent } from "../../components/common/happy-clients/hap
 import { ContactFormComponent } from "../../components/common/contact-form/contact-form.component";
 import { TestimonialsComponent } from "../../components/home/testimonials/testimonials.component";
 import { HeaderComponent } from '../../components/common/header/header.component';
+import { VisualTransformationComponent } from "../../components/home/visual-transformation/visual-transformation.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ IntroComponent, ContactBannerComponent, AboutComponent, ServicesComponent, HappyClientsComponent, ContactFormComponent, TestimonialsComponent],
+  imports: [IntroComponent, ContactBannerComponent, AboutComponent, ServicesComponent, HappyClientsComponent, ContactFormComponent, TestimonialsComponent, VisualTransformationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

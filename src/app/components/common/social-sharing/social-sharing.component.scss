@@ -1,0 +1,19 @@
+.social-share {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 0 2rem;
+  
+    a img {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.2s ease;
+    }
+  
+    a:hover img {
+      transform: scale(1.1);
+    }
+  }
+  
