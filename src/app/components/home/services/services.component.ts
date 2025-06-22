@@ -27,8 +27,11 @@ export class ServicesComponent {
   >;
   public sectionIntroPrimaryText = 'WHY CHOOSE';
   public sectionIntroSecondaryText = 'WHAT A SHOT';
-  public sectionIntroDescription =
-    'We turn ideas into striking visuals that captivate and resonate. Through bold creativity and precision, we deliver visuals that leave a lasting impression.';
+  public sectionIntroTertiaryText = 'For Your Video Production Needs';
+  public sectionIntroDescription = '<div class="bm-1"><span class="bold">🎥 Creative Vision </span>– We don’t just shoot; we craft visual stories that move people.</div><div class="bm-1"> <span class="bold"> 📸 Top-Quality Gear & Team </span>– Professional-grade cameras, lighting, and editing for flawless results.</div> <div class="bm-1"><span class="bold">📈 Impact-Driven Results </span> – From engagement to conversions, our videos drive real outcomes.</div><div class="bm-1"><span class="bold">🌍 Versatile Portfolio </span> – From startups to corporates, NGOs to personal brands—our work spans industries.</div>';
+
+  // public sectionIntroDescription =
+  //   '<span class="bm-1"><span class="bold bm-1">🎥 Creative Vision </span>– We don’t just shoot; we craft visual stories that move people.</span><br><span class="bm-1"> <span class="bold"> 📸 Top-Quality Gear & Team </span>– Professional-grade cameras, lighting, and editing for flawless results.</span><br> <span class="bm-1"><span class="bold">📈 Impact-Driven Results </span> – From engagement to conversions, our videos drive real outcomes.</span><br><span class="bm-1"><span class="bold">🌍 Versatile Portfolio </span> – From startups to corporates, NGOs to personal brands—our work spans industries.</span>';
   public services = [
     {
       serviceName: 'Product Shoot',

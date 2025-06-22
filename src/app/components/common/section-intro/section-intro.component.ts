@@ -9,5 +9,6 @@ import { Component, Input } from '@angular/core';
 export class SectionIntroComponent {
   @Input() primaryText: string = '';
   @Input() secondaryText: string = '';
+  @Input() tertiaryText: string = '';
   @Input() description: string = '';
 }

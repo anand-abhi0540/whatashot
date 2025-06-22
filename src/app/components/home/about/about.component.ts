@@ -11,6 +11,7 @@ import { SectionIntroComponent } from '../../common/section-intro/section-intro.
 export class AboutComponent {
   public sectionIntroPrimaryText = 'INTRODUCTION';
   public sectionIntroSecondaryText = 'TO WHAT A SHOT';
+  public sectionIntroTertiaryText = 'A Creative Video Production Company';
   public sectionIntroDescription =
-    'At What A Shot, we believe every frame tells a story. Our passion lies in capturing moments that resonate, inspire, and leave lasting impressions.';
+    "Looking for the best video production team to tell your story? At What A Shot, every frame is a canvas. We create compelling videos for brands, startups, NGOs, and businesses, using visuals that resonate deeply with your audience. Whether you're launching a product, telling a CSR story, or need a professional corporate video, we’re here to elevate your vision.";
 }

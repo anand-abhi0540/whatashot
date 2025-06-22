@@ -14,8 +14,7 @@ export class TestimonialsComponent {
   public sectionIntroPrimaryText = 'RAW REVIEWS';
   public sectionIntroSecondaryText = 'REAL RESULTS';
   public currentSlide = 0;
-  public sectionIntroDescription =
-    'Hear directly from our clients about their genuine experiences. No filters, no scripts — just honest feedback that reflects the quality and impact of our work. Discover how we’ve helped brands bring their vision to life and make a lasting impression.';
+  public sectionIntroDescription = 'Don’t just take our word for it.<br>Explore the honest feedback from our clients who’ve trusted What A Shot for everything from product shoots to documentary storytelling. Our videos don’t just look good—they work.Let their words show you the impact we bring.';
   public testimonials = [
     {
       clientName: 'Vanshika Chachra',
