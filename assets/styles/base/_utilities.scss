@@ -1,16 +1,30 @@
 @use "../abstracts/variables" as *;
 @use "sass:string";
 
+
 @each $space in $spaces {
+  $space-value: if($space == 'half', 0.5, $space); // handle special value
+
   @each $side in $sides {
-    .#{string.slice($side,0,1)}m-#{$space} {
-      margin-#{$side}: #{$space}rem;
+    .#{string.slice($side, 0, 1)}m-#{$space} {
+      margin-#{$side}: #{$space-value}rem;
     }
-    .#{string.slice($side,0,1)}p-#{$space} {
-      padding-#{$side}: #{$space}rem;
+    .#{string.slice($side, 0, 1)}p-#{$space} {
+      padding-#{$side}: #{$space-value}rem;
     }
   }
 }
+
+// @each $space in $spaces {
+//   @each $side in $sides {
+//     .#{string.slice($side,0,1)}m-#{$space} {
+//       margin-#{$side}: #{$space}rem;
+//     }
+//     .#{string.slice($side,0,1)}p-#{$space} {
+//       padding-#{$side}: #{$space}rem;
+//     }
+//   }
+// }
 
 .flex {
   display: flex;
