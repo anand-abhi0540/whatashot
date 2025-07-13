@@ -96,7 +96,7 @@ export class MediaListComponent {
 
   isImage(): boolean {
     return (
-      this.serviceId.includes('images') || this.serviceId.includes('model')
+      this.serviceId.includes('images') || this.serviceId.includes('model') || this.serviceId.includes('infographics')
     );
   }
 
