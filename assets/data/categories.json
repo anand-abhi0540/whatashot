@@ -37,6 +37,11 @@
       "services": ["Creative Images", "Listing Images"]
     },
     {
+      "name": "De Laaso",
+      "id": "de_laaso",
+      "services": ["Creative Images"]
+    },
+    {
       "name": "Guor Guitton",
       "id": "guor_guitton",
       "services": ["Creative Images", "Listing Images", "Videos"]
@@ -80,6 +85,11 @@
       "name": "Skin Inspired",
       "id": "skin_inspired",
       "services": ["Creative Images", "Listing Images", "Videos"]
+    },
+    {
+      "name": "Sumaiya",
+      "id": "sumaiya",
+      "services": ["Creative Images", "Listing Images", "Videos", "Infographics"]
     },
     {
       "name": "TaruTattva",
@@ -150,6 +160,10 @@
     {
       "name": "Videos",
       "id": "videos"
+    },
+    {
+      "name": "Infographics",
+      "id": "infographics"
     }
   ]
 }
