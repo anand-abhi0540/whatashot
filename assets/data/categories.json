@@ -122,7 +122,7 @@
     {
       "name": "Footwear",
       "id": "footwear",
-      "services": ["Videos"]
+      "services": ["Creative Images", "Videos"]
     },
     {
       "name": "Incense and Fragrances",
