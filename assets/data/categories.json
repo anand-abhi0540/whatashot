@@ -39,7 +39,7 @@
     {
       "name": "De Laaso",
       "id": "de_laaso",
-      "services": ["Creative Images"]
+      "services": ["Listing Images", "Creative Images"]
     },
     {
       "name": "Guor Guitton",
@@ -95,6 +95,11 @@
       "name": "TaruTattva",
       "id": "tarutattva",
       "services": ["Videos"]
+    },
+    {
+      "name": "Tattva Elixir",
+      "id": "tattva_elixir",
+      "services": ["Creative Images", "Listing Images", "Model", "Infographics"]
     },
     {
       "name": "Good Year",
